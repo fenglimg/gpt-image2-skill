@@ -187,34 +187,11 @@ All images produced one-shot at `--quality high`. Every prompt is in [`reference
 
 ## Acknowledgements
 
-This skill stands on the shoulders of the GPT Image 2 creator community. Every showcase image credits its source inline; consolidated list below.
+- **OpenAI** — the `gpt-image-2` model.
+- [`ZeroLu/awesome-gpt-image`](https://github.com/ZeroLu/awesome-gpt-image) — community prompt archive, CC BY 4.0.
+- [`ResearAI/AutoFigure`](https://github.com/ResearAI/AutoFigure) — related LLM scientific-figure project.
 
-**Upstream model**
-- **OpenAI** — the `gpt-image-2` model itself (`/v1/images/generations`, `/v1/images/edits`).
-
-**Prompt-gallery upstream**
-- [`ZeroLu/awesome-gpt-image`](https://github.com/ZeroLu/awesome-gpt-image) — 56 community-curated editorial prompts, CC BY 4.0; per-entry `@handle` attribution preserved in [`references/gallery.md`](references/gallery.md).
-- [`ResearAI/AutoFigure`](https://github.com/ResearAI/AutoFigure) — related project on LLM-based scientific figure generation (different architecture: review-refine loop).
-
-**Community creators cited per-image**
-- [卡尔的AI沃茨 (WeChat)](https://mp.weixin.qq.com/s/ASxig6mFVYxrIE8-8Fthew) — tea poster, music player, e-commerce app, 16-panel anime expression grid
-- [@MrLarus](https://x.com/MrLarus) — museum-catalog infographic, encyclopedia field guide, GTA 6 template, character relationship diagrams
-- [@akokoi1](https://x.com/akokoi1) — 1980s propaganda poster
-- [@Panda20230902](https://x.com/Panda20230902) — Song Dynasty social-media feed
-- [@flowersslop](https://x.com/flowersslop) — Hitman / OpenAI HQ gameplay, GTA San Andreas
-- [@WolfRiccardo](https://x.com/WolfRiccardo) — GTA 6 gameplay, RAW iPhone subway
-- [@patrickassale](https://x.com/patrickassale) — handwritten notebook photo, Apple Park keynote
-- [@EddGorenstein](https://x.com/EddGorenstein) — chess board mid-game
-- [@AIimagined](https://x.com/AIimagined) — 360° equirectangular panorama
-- [@mehvishs25](https://x.com/mehvishs25) — JSON-style product render
-- [@ChillaiKalan__](https://x.com/ChillaiKalan__) — JSON-style food photography
-- [@cht0001](https://x.com/cht0001) — manga relationship map for literature
-- [@MANISH1027512](https://x.com/MANISH1027512) — character reference sheet format
-- [@icreatelife](https://x.com/icreatelife) — 360° panorama + Codex 3D viewer workflow
-- [@PANewsLab](https://x.com/PANewsLab) — Chinese person-profile poster template
-
-**Research-figure paper inspirations** (each prompt in `references/gallery.md` cites the paper)
-Vaswani et al. 2017 (Transformer) · Lewis et al. 2020 (RAG) · Ho et al. 2020 (DDPM) · Kaplan et al. 2020 / Hoffmann et al. 2022 (scaling laws / Chinchilla) · Madaan et al. 2023 (Self-Refine) · Clark et al. 2019 (BERT attention) · Yao et al. 2022 (ReAct) · Wu et al. 2023 (AutoGen) · Liang et al. 2023 (HELM) · Greshake et al. 2023 (indirect prompt injection)
+Per-image community `@handle` credits and per-prompt research-paper citations live inline in [`references/gallery.md`](references/gallery.md) and in each Showcase caption above — no need to duplicate them here.
 
 ---
 
