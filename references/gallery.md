@@ -437,6 +437,49 @@ Generate an image of a handwritten Chinese medicine or Western medicine prescrip
 ```
 Tip: reference images for layout, handwriting, or stamp style produce much better results. Source: [@MrLarus](https://x.com/MrLarus/status/2046514998965371144)
 
+### Vogue-style fashion magazine cover
+```text
+A high-fashion magazine cover, 3:4 portrait, Vogue Paris / British Vogue editorial aesthetic.
+
+Subject: a tall female model, medium-dark skin tone, mid-thirties, standing three-quarters to camera, direct piercing gaze. She wears a sculptural high-collared ivory wool coat over a silk slip dress in deep aubergine. Minimalist silver spiral earrings. Hair in a sleek low chignon with a single escaped strand. Makeup: matte bronze-warm, glossy plum lip.
+
+Background: muted concrete-grey seamless paper backdrop, vertical shaft of cool daylight from upper left. Shallow depth of field.
+
+Exact cover typography (all English, crisp, correctly spelled):
+- Masthead, huge uppercase serif, white: "VOGUE"
+- Date strip top-left, tiny caps: "NOVEMBER 2026 · PARIS EDITION · €9.00"
+- Main cover line, bold sans-serif centered: "THE QUIET POWER ISSUE"
+- Right-edge cover lines, stacked:
+   "THE NEW MINIMALISTS — a 40-page portfolio"
+   "HOW AI TOOLS ARE REWRITING THE ATELIER"
+   "MARTIN MARGIELA'S UNREVEALED ARCHIVE"
+   "SKIN · INVESTMENT · WHERE THE MONEY GOES NEXT"
+- Bottom-left barcode with catalog code "VG1126"
+
+Lighting: classic fashion editorial — soft single-source key, subtle fill, deep shadow on one cheek, fine film grain.
+```
+Source: original prompt by this repo; aesthetic reference to Vogue Paris / British Vogue editorial covers.
+
+### Vintage 1950s sci-fi pulp magazine cover
+```text
+A vintage sci-fi pulp magazine cover from the 1950s, 3:4 portrait. Classic "Astounding Science Fiction" / "Galaxy" aesthetic — painted gouache illustration with pulp-yellow paper texture, screen-printing registration slightly off, pale browned paper tone around edges.
+
+Cover illustration: a chrome-silver rocket ship descending toward an alien red-desert planet with two Saturn-like ringed moons in a violet sky. A lone astronaut in a bulbous 1950s-style glass-dome space helmet stands foreground-left in a crimson pressurised suit, holding a ray-gun, facing a many-tentacled translucent green creature emerging from a fissure.
+
+Exact typography (all English, crisp, correctly spelled):
+- Masthead, huge yellow retro display serif arched across the top: "ASTOUNDING STORIES"
+- Volume banner, red, under masthead: "VOL. XXXVII · NO. 5 · MARCH 1957 · 25¢"
+- Featured story callout, bold red sans-serif bottom-left: "THE MEN FROM RIGEL — a novelette by E. A. KLEIN"
+- Secondary cover lines, smaller stacked:
+   "THE CRYSTAL VINE by Olive Barnaby"
+   "REPORT FROM EUROPA · Science Fact"
+   "plus — three new stories from across the galaxy"
+- Bottom-right white circle stamp: "PLUS 32 FULL-COLOR ILLUSTRATIONS"
+
+Art direction: painted gouache with visible brush strokes, saturated pulp palette (canary yellow, orange, red, electric violet, chrome silver), hand-lettered headlines, slightly rough paper texture, faint foxing on corners.
+```
+Source: original prompt by this repo; aesthetic reference to "Astounding Stories" / "Galaxy" 1950s pulp magazines.
+
 ---
 
 ## Infographics & Education <a id="infographics"></a>
@@ -738,6 +781,51 @@ Panel 6 — Match cut: runner's boots landing on wet rooftop; splash. Info: "PAN
 Art direction: classic animation-school storyboard — pencil line-work, grey marker shading, red-pencil arrow annotations on panels 2 and 5 (camera move and action arc). Off-white paper texture background.
 ```
 Source: original prompt by this repo — adapts the classic animation-school storyboard format.
+
+### MAPPA-style anime action still (Jujutsu-Kaisen aesthetic)
+```text
+An anime action still in the visual style of MAPPA's Jujutsu Kaisen (2020 TV anime). Landscape 16:9.
+
+A silver-white-haired young man in a dark navy school-uniform jacket, a blue blindfold across his eyes, in a mid-fight stance — one palm extended outward releasing a swirling dense-blue energy sphere with lightning-like crackles around its edge. Opposite him, a demonic shadow creature made of liquid black mass with multiple eyes lunges from the right.
+
+Backdrop: ruined urban street at dusk, shattered asphalt, cracked neon kanji sign "呪術" in split red LED, destroyed vehicles, rubble suspended mid-air by the shockwave, rain particles caught mid-flight.
+
+Art direction: MAPPA-style digital 2D animation — heavy cel shading, crisp line-art, rim-light on both figures, motion-blur streaks around the energy sphere. Palette of deep navy, electric cyan, crimson splashes. Kinetic-impact composition in the tradition of JJK's Shibuya arc.
+```
+Source: original prompt by this repo; aesthetic reference to MAPPA's Jujutsu Kaisen (2020 TV anime). "MAPPA-style" is a recurring prompt idiom across Twitter/X and 小红书.
+
+### Shōnen battle key-visual (Naruto-Shippuden aesthetic)
+```text
+A shōnen anime battle key-visual in the visual style of Studio Pierrot's Naruto Shippuden. Landscape 16:9.
+
+Two ninja figures clash mid-air at the exact instant their signature jutsu collide — a glowing blue spiral of swirling chakra on the left fighter's right palm, a crackling white lightning blade on the right fighter's right palm. The collision point sends a circular shockwave outward.
+
+Both fighters wear hitai-ate forehead protectors, jounin-style tactical vests with scroll pouches, ninja sandals. Left: spiky blond hair, whisker cheek marks, focused snarl, blue eyes. Right: dark hair, one red sharingan-like eye with three tomoe, calm expression.
+
+Backdrop: nighttime valley, cracked earth, giant uprooted trees mid-crash, moonlit clouds parting, sakura petals caught in the shockwave.
+
+Art direction: Studio Pierrot Naruto-Shippuden aesthetic — dynamic perspective, strong speed lines radiating from the collision, anime-action key-frame quality, digital 2D cel shading, saturated but not neon, visible genga-quality line-art, dramatic backlight.
+```
+Source: original prompt by this repo; aesthetic reference to Studio Pierrot's Naruto Shippuden.
+
+### Shōnen manga two-page spread (basketball)
+```text
+A black-and-white shōnen manga two-page spread (landscape 16:9 as a single composition, with a faint centre-gutter line). High-contrast ink plus screentone, Weekly Shōnen Jump basketball-manga tradition (Inoue's Slam Dunk / Fujimaki's Kuroko no Basuke).
+
+Composition: 5 irregular panels plus one large diagonal panel spanning both pages at bottom-right for the climactic slam dunk.
+
+- Top-left: close-up of the protagonist's intense eyes, sweat beading, headband tied tight
+- Top-centre: wide shot of a packed high-school gymnasium, scoreboard reading "42 — 40 · 4Q 0:03"
+- Top-right: rival team captain's shocked face, mouth agape
+- Centre-left: protagonist leaping skyward with both hands gripping a basketball
+- Centre-right-small: sound-effect katakana "バッ" in thick black letters
+- Large diagonal bottom-right (half of both pages): protagonist slamming the ball through the hoop, rim bending, massive ink-brushed kanji "決" (decide) filling the negative space
+
+Art direction: professional mangaka quality — confident inking, dramatic screentone gradients, speed lines radiating from the dunk, varied line-weights, off-white paper texture with faint page-edge shading.
+
+Dialogue balloons intentionally blank; only the two sound effects are visible.
+```
+Source: original prompt by this repo — adapts Weekly Shōnen Jump two-page spread composition to a non-violent basketball climax (safety-moderation-safe).
 
 ---
 
