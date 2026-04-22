@@ -4,7 +4,6 @@ A Claude Skill + CLI for **OpenAI GPT Image 2** (`gpt-image-2`), with a curated 
 
 Drop it into any skill-aware agent runtime (Claude Code, Hermes, etc.) or just call the script directly from the shell.
 
-![shanchuan tea poster example](docs/example-tea-poster.png)
 
 ## What you get
 
@@ -44,71 +43,106 @@ The PEP 723 header pulls `httpx` + `python-dotenv` automatically on first run; n
 
 ## Showcase
 
-All of the images below were produced in one shot by the skill at `--quality high`, with no manual edits. Prompt texts live under [`docs/`](docs/) so you can reproduce them.
+All images below were produced one-shot at `--quality high`. Every prompt is in [`references/gallery.md`](references/gallery.md).
 
-### Commercial & editorial design
+### Editorial & commercial
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<img src="docs/example-tea-poster.png" alt="Chinese tea-brand launch poster" />
-<br><strong>Chinese commercial typography</strong><br>
-<em>3:4 tea-launch poster, 17 exact-copy strings, New Chinese light-luxury palette, rice-paper texture. Price tiers, gift modules, fine print — all correctly rendered.</em>
+<img src="docs/example-tea-poster.png" alt="Chinese tea-launch poster" />
+<br><em>Chinese tea-launch poster</em>
 </td>
 <td width="50%" valign="top">
-<img src="docs/example-propaganda-poster.png" alt="Open-source 1980s propaganda poster" />
-<br><strong>Stylised period design + slogan</strong><br>
-<em>1980s Chinese propaganda poster, exact slogan "拥抱开源 · 回馈社区", three-character hero composition with laptop / paintbrush / notebook. Red-gold-blue palette, paper grain.</em>
+<img src="docs/example-propaganda-poster.png" alt="1980s propaganda poster" />
+<br><em>1980s propaganda poster</em>
 </td>
 </tr>
 <tr>
 <td valign="top">
-<img src="docs/example-museum-infographic.png" alt="Tang Dynasty attire museum-catalog infographic" />
-<br><strong>Museum-catalog infographic</strong><br>
-<em>唐代襦裙 disassembly board — structural callouts, material swatches, pattern-meaning modules, numbered dressing flow. Dense Simplified-Chinese annotations throughout.</em>
+<img src="docs/example-museum-infographic.png" alt="Museum-catalog infographic" />
+<br><em>Museum-catalog infographic (唐代襦裙)</em>
 </td>
 <td valign="top">
-<img src="docs/example-photoreal-subway.png" alt="RAW iPhone photorealism of a New York subway station" />
-<br><strong>RAW iPhone photorealism</strong><br>
-<em>42nd Street subway, train in motion blur, elderly couple on the platform. Fluorescent ceiling wash, natural imperfections, no filter — the quintessential "unprocessed capture" look.</em>
+<img src="docs/example-photoreal-subway.png" alt="RAW iPhone photorealism" />
+<br><em>RAW iPhone photorealism</em>
 </td>
 </tr>
 <tr>
 <td colspan="2" valign="top">
-<img src="docs/example-character-sheet.png" alt="Cyberpunk engineer character reference sheet" />
-<br><strong>Character reference sheet with cross-view consistency</strong><br>
-<em>Neo-Shanghai 2085 — front/side/back three-view, six-expression grid, jacket / utility-belt / AR-glasses / boots callouts, five-swatch color palette, worldview panel. Face shape, hairstyle, and outfit stay identical across views.</em>
+<img src="docs/example-character-sheet.png" alt="Character reference sheet" />
+<br><em>Character reference sheet — three-view, expression grid, equipment, world notes</em>
 </td>
 </tr>
 </table>
 
-### Research-paper figures
-
-Paper-ready figures for ML/AI publications. Muted academic palette, flat vector style, crisp labels — the kind of Figure 1 you'd send to NeurIPS, ICML, or ICLR camera-ready.
+### Research paper figures
 
 <table>
 <tr>
 <td width="50%" valign="top">
-<img src="docs/example-transformer-arch.png" alt="Transformer encoder-decoder architecture diagram" />
-<br><strong>Transformer architecture block diagram</strong><br>
-<em>Encoder / decoder dual-stack with residual connections, multi-head self-attention, cross-attention with "keys, values" link, positional encoding, Linear → Softmax head. Camera-ready Vaswani-style layout.</em>
+<img src="docs/example-transformer-arch.png" alt="Transformer architecture" />
+<br><em>Transformer encoder–decoder (Vaswani et al., 2017)</em>
 </td>
 <td width="50%" valign="top">
-<img src="docs/example-rag-pipeline.png" alt="Retrieval-Augmented Generation pipeline diagram" />
-<br><strong>RAG systems diagram</strong><br>
-<em>Six-stage left-to-right pipeline: user query → embedding encoder → vector store → retrieved passages → frozen LLM → grounded answer with inline citation. Offline / online regions marked with dashed outlines.</em>
+<img src="docs/example-rag-pipeline.png" alt="RAG pipeline" />
+<br><em>Retrieval-Augmented Generation pipeline (Lewis et al., 2020)</em>
 </td>
 </tr>
 <tr>
 <td valign="top">
-<img src="docs/example-safety-taxonomy.png" alt="LLM prompt-attack landscape taxonomy tree" />
-<br><strong>LLM safety taxonomy tree</strong><br>
-<em>3:4 hierarchy diagram of prompt-attack landscape: root → failure modes (competing objectives / mismatched generalization / internal safety collapse) × attack surfaces (chat prompt / tool return / retrieval corpus / multi-turn). Academic citation style.</em>
+<img src="docs/example-agent-architecture.png" alt="Multi-agent LLM system" />
+<br><em>Multi-agent LLM system (AutoGen / LangGraph / Managed Agents)</em>
 </td>
 <td valign="top">
-<img src="docs/example-diffusion-chain.png" alt="Denoising diffusion forward and reverse chain" />
-<br><strong>Diffusion forward / reverse chain</strong><br>
-<em>Canonical DDPM-style figure: top chain shows progressive Gaussian noise corruption x₀ → x_T; bottom chain shows learned reverse denoising with ε_θ(x_t, t) blocks between frames. Loop-closing arrows label "T diffusion steps" and "sample x₀".</em>
+<img src="docs/example-diffusion-chain.png" alt="Diffusion chain" />
+<br><em>Denoising diffusion forward / reverse chain (Ho et al., 2020)</em>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<img src="docs/example-scaling-curves.png" alt="Scaling laws plot" />
+<br><em>Empirical scaling laws (Kaplan 2020, Chinchilla 2022)</em>
+</td>
+<td valign="top">
+<img src="docs/example-benchmark-heatmap.png" alt="Benchmark heatmap" />
+<br><em>Benchmark comparison heatmap</em>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<img src="docs/example-ablation-bars.png" alt="Ablation bar chart" />
+<br><em>Ablation bar chart with error bars</em>
+</td>
+<td valign="top">
+<img src="docs/example-data-sankey.png" alt="Pretraining data mixture sankey" />
+<br><em>LLM pretraining data-mixture sankey</em>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<img src="docs/example-algorithm-box.png" alt="Algorithm pseudocode block" />
+<br><em>Algorithm pseudocode block (Self-Refine, Madaan et al., 2023)</em>
+</td>
+<td valign="top">
+<img src="docs/example-attention-heatmap.png" alt="Attention weight heatmaps" />
+<br><em>Multi-head attention heatmaps (Clark et al., 2019)</em>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<img src="docs/example-model-timeline.png" alt="LLM family tree timeline" />
+<br><em>Frontier LLM family tree, 2018–2026</em>
+</td>
+<td valign="top">
+<img src="docs/example-react-trace.png" alt="ReAct reasoning trace" />
+<br><em>ReAct reasoning trace (Yao et al., 2022)</em>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
+<img src="docs/example-prompt-injection-flow.png" alt="Indirect prompt injection attack flow" />
+<br><em>Indirect prompt-injection attack flow (Greshake et al., 2023)</em>
 </td>
 </tr>
 </table>
