@@ -50,6 +50,102 @@ Source: [@adonis_singh](https://x.com/adonis_singh/status/2046673729082560919)
 ```
 Source: [@LexnLin](https://x.com/LexnLin/status/2046725722320888313)
 
+### 360° equirectangular panorama — jungle + dinosaurs (filled example)
+```text
+360 equirectangular panorama of a dense prehistoric jungle scene. Cinematic detail. Strict 2:1 aspect ratio (e.g. 4096×2048). No distortion at the seams — the left and right edges must wrap seamlessly.
+
+Scene: towering fern-covered trees, shafts of golden sunlight piercing the canopy, a slow river winding through the centre foreground, mist rising off the water. Scattered dinosaurs of varied species — a grazing Brachiosaurus neck visible among distant tree canopy, two small Gallimimus drinking at the river's edge, a Triceratops in the background underbrush. Tropical birds in flight, butterflies, dragonflies over the water.
+
+Lighting: late-afternoon golden hour, warm directional backlight through the canopy. High dynamic range, slight atmospheric haze. Equirectangular projection suitable for spherical / 360 viewers.
+```
+Source: [@AIimagined](https://x.com/AIimagined/status/2046915800263802880) — popularised the filled-in 360° panorama pattern with GPT Image 2. Pairs with [@icreatelife's](https://x.com/icreatelife/status/2046923911082717555) panorama → Codex mouse-controlled 3D viewer workflow.
+
+### Product render — Chocolate wafer (JSON-style)
+```text
+/* PRODUCT_RENDER_CONFIG: Chocolate Wafer Hazelnut Edition
+   VERSION: 2.0.1
+   AESTHETIC: Premium Commercial Food Photography */
+
+{
+  "ENVIRONMENT": {
+    "Background": "Gradient(Dark_Warm_Brown)",
+    "Atmospheric_FX": ["Floating_Particles", "Depth_Blur", "Cinematic_Bokeh"],
+    "Lighting": { "Type": "Directional_Studio_Warmer", "Highlights": "Specular_Glossy_Reflections", "Shadow_Softness": "High" }
+  },
+  "CORE_ASSETS": {
+    "Primary_Subject": "Wafer_Rolls",
+    "Physics": "Zero_Gravity_Diagonal_X_Composition",
+    "Material_Properties": {
+      "Outer": "Milk_Chocolate_Coating",
+      "Surface_Texture": "Irregular_Nut_Clusters_Embedded",
+      "Interior_Cross_Section": { "Structure": "Crispy_Hollow_Wafer", "Core": "Silky_Chocolate_Cream_Filling" }
+    }
+  },
+  "PARTICLE_SYSTEMS": [
+    { "Object": "Chocolate_Blocks", "Detail": "Rectangular_Embossed_Letter_B", "State": "Floating" },
+    { "Object": "Hazelnuts", "State": "Halved_and_Fragmented", "Distribution": "Random_Orbit" }
+  ],
+  "FLUID_DYNAMICS": { "Element": "Chocolate_Splash", "Behavior": "Dynamic_Backdrop_Flow", "Viscosity": "Thick_Glossy" },
+  "RENDER_OUTPUT": { "Resolution": "8K_UHD", "Aspect_Ratio": "3:4", "Quality_Flags": ["Hyper_Realistic", "Sharp_Foreground", "Indulgent_Mood"] }
+}
+```
+Source: [@mehvishs25](https://x.com/mehvishs25/status/2020693181730598932) — pioneered the structured JSON-object prompt style for premium product shots. gpt-image-2 handles nested config keys surprisingly well.
+
+### Food photography — Salad explosion (JSON-style)
+```text
+{
+  "global_settings": {
+    "resolution": "8K ultra high definition",
+    "aspect_ratio": "2:3 vertical",
+    "style": "hyper-realistic food photography",
+    "clarity": "extreme sharpness, micro-texture visibility",
+    "motion": "frozen action with suspended ingredients",
+    "lighting_quality": "studio-grade, high-contrast, cinematic"
+  },
+  "scene_description": "A dynamic salad explosion emerging from a matte black bowl placed on a round wooden surface. Ingredients are mid-air, scattered upward and outward, each ingredient lit by a directional key light that highlights surface moisture.",
+  "ingredients_visible": [
+    "green lettuce leaves", "cherry tomatoes (whole and sliced)", "cucumber slices arranged in a curved stack",
+    "black olives", "white cheese cubes", "orange citrus slice", "small broccoli florets",
+    "fresh green basil leaves", "a drizzle of olive oil caught mid-fall"
+  ],
+  "motion_details": {
+    "ingredients": "caught mid-arc, rotating slightly, some lightly blurred to convey motion",
+    "particles": "tiny droplets of olive oil and water beads floating between ingredients",
+    "bowl": "perfectly still, matte black, absorbing highlights"
+  },
+  "environment": { "background": "softly graded off-white to warm beige", "surface": "circular cut of raw oak wood" },
+  "render_flags": ["food photography award-winning", "no CGI tell", "editorial cookbook cover feel"]
+}
+```
+Source: [@ChillaiKalan__](https://x.com/ChillaiKalan__) — same JSON-object pattern applied to editorial food photography.
+
+### Chess board — mid-tournament game
+```text
+Generate a photorealistic photo of a chess board during the middle of a serious tournament game. Top-down three-quarter view, shallow depth of field. All pieces clearly distinguishable and correctly shaped: pawns, rooks, knights (with horse-head silhouette), bishops (mitre tops), queens, kings (with cross finials). The position is mid-game: several pieces already captured and set aside to the right of the board, some pawns advanced, pieces clustered around the central files d4-e5-f4.
+
+Materials: polished wooden staunton-style pieces — dark side in rosewood, light side in maple. Board made of inlaid maple and walnut squares. A digital chess clock sits to the left showing "00:14:28 / 00:08:47". Soft overhead tournament lighting, blurred tournament-hall background. All pieces accurate, no mutants, no extra sets.
+```
+Source: [@EddGorenstein](https://x.com/EddGorenstein/status/2046923077993259196) — classic gpt-image-2 spatial-reasoning stress test; shows the model can finally render legible staunton pieces.
+
+### Person-profile poster (Chinese template)
+```text
+按这张图的 layout，research {人物}，做一份同款人物海报。
+
+需要包含：
+1. 头部：姓名 + slogan + 金句 + 肖像
+2. 基本信息：出生 / 教育 / 关键节点
+3. 职业履历时间轴
+4. 核心理念（4 条）
+5. 代表作品（6 个）
+6. 金句与演讲（3 条）
+7. 管理 / 个人风格（4 个关键词）
+8. 未来方向（4 个）
+9. 底部总结 + 金句横幅
+
+真实资料优先，虚构部分标注。
+```
+Source: [@PANewsLab](https://x.com/PANewsLab/status/2046922799802187877) (two-tweet thread) — template Chinese layout for researcher / founder / figure profile posters. Feed a reference layout image via the edit endpoint + replace `{人物}` with a target name.
+
 ---
 
 ## Games <a id="games"></a>
@@ -563,6 +659,85 @@ Source: [@icreatelife](https://x.com/icreatelife/status/2046639884421550482)
 Create an eight-panel manga about GPT-Image-2 launching today
 ```
 Source: [@venturetwins](https://x.com/venturetwins/status/2046620134933250409)
+
+### Manga person-relationship — classic literature
+```text
+A manga-style illustration showing the person-relationship map for "A Tale of Two Cities" by Charles Dickens. Single full-frame composition, monochrome ink + screentone, classic shōjo / historical-manga aesthetic.
+
+Characters as small portrait panels connected by labeled relationship lines:
+- Charles Darnay ↔ Lucie Manette: "marriage"
+- Sydney Carton → Lucie: "unrequited love → ultimate sacrifice"
+- Lucie ↔ Dr. Manette: "father / daughter"
+- Madame Defarge → Darnay family: "vengeance"
+- Monsieur & Madame Defarge: "husband / wife, revolutionaries"
+- Jarvis Lorry → Manette family: "loyal banker & guardian"
+- Miss Pross → Lucie: "devoted protector"
+
+Title "A TALE OF TWO CITIES" in elegant serif at top. Decorative border echoes 18th-century Paris (guillotine silhouette) / London (Tower of London). Monochrome black-ink linework with grey screentone shading.
+```
+Source: [@cht0001](https://x.com/cht0001/status/2046920121239908380) — "manga illustration of person relationship of [literary work]" pattern; the terse original prompt reproduces well, the expanded version above gives better character fidelity.
+
+### Studio-Ghibli-style animation still
+```text
+A Studio-Ghibli-style hand-painted animation still, landscape 16:9. A small wooden cottage sits on a grassy hillside overlooking a valley at golden hour. A child stands barefoot at the cottage doorway waving to a small furry forest spirit half-hidden in the meadow grass. A distant train cuts across the valley floor, swallows dip overhead.
+
+Art direction: classic Miyazaki / Studio Ghibli watercolor-gouache style. Soft painterly edges, slightly desaturated greens and warm skin tones, visible brush texture in the clouds and grass. Thin ink line art on the characters. Gentle atmospheric perspective. The whole frame should feel like a cel from "My Neighbor Totoro" or "Kiki's Delivery Service", not a 3D render.
+```
+Source: community pattern — "Studio Ghibli style" is one of the most-requested aesthetic idioms across Twitter/X and 小红书. Expanded version above anchors the style with specific film references and brush-texture cues.
+
+### Saul-Bass-style thriller movie poster
+```text
+A Saul-Bass-style minimalist thriller movie poster, 3:4 portrait. Off-white paper background with subtle vintage grain. Large flat-color cut-paper shapes, bold geometry, negative-space illusion.
+
+Composition: a single stylised human silhouette in crimson running across centre; the shadow warps into a knife blade pointing up into the title. Black ink-brush splatter across the lower third. A single yellow eye motif in the upper-left negative space.
+
+Exact typography:
+- Title (large hand-lettered serif, black): "THE LAST HEIR"
+- Tagline (small caps sans-serif, dark red): "EVERY FAMILY KEEPS A SECRET. HIS WILL BURY THEM ALL."
+- Bottom credit block: "PRODUCERS JANE NORRIS  LEWIS HAHN    DIRECTED BY MAYA ALVAREZ    A CINERA RELEASE    IN CINEMAS OCTOBER 31"
+
+Palette: cream, charcoal black, crimson red, mustard-yellow accent. Pure flat graphic design, no photo elements, no gradients, no 3D — in the lineage of Bass's "Anatomy of a Murder", "Vertigo", and "The Man with the Golden Arm".
+```
+Source: original prompt by this repo, inspired by Saul Bass's 1955–1970 poster work. "Saul-Bass-style" is a recurring community prompt idiom.
+
+### Pixar-style 3D animation still
+```text
+A Pixar-quality 3D animation still, landscape 16:9. Cinematic feature-film look, warm studio lighting.
+
+Scene: a cozy apartment kitchen at dawn. A small orange tabby kitten sits on the countertop reaching a paw toward a rising soufflé in the oven; oven glow lighting the scene from below. Soft morning light through linen curtains. A wooden chopping board with a half-peeled lemon, a copper whisk with a small cloud of flour still airborne, a tiny succulent in a clay pot.
+
+Character: kitten with expressive, slightly oversized eyes (classic Pixar proportions), individually sculpted whiskers, believable fur with micro-groom direction, curious-slightly-worried expression.
+
+Art direction: full-CG Pixar aesthetic — subsurface scattering on ears and whiskers, physically based materials, soft shadow ambient occlusion, volumetric morning beam, shallow depth of field. Clean stylised shapes consistent with "Luca", "Soul", "Elemental" — not photoreal uncanny-valley.
+```
+Source: community pattern — "Pixar style" is a ubiquitous prompt idiom on Twitter/X and 小红书. Expanded version above anchors the CG specifics (SSS, micro-groom, ambient occlusion) to avoid generic 3D-render output.
+
+### 1940s film-noir photograph
+```text
+A 1940s film-noir black-and-white movie still, landscape 16:9, high contrast. Shot on 35mm with visible grain.
+
+Scene: a detective in trench coat and fedora stands alone at a rain-soaked street corner at 2 a.m., cigarette in hand, smoke curling upward. Wet cobblestones reflecting a single buzzing street lamp. A "HOTEL" neon sign on brick facade with letters "HOTE_" (the L flickered out). A vintage 1946 sedan parked at the curb, tail-lights glowing through drizzle.
+
+Lighting: classic chiaroscuro — single hard key light above right, venetian-blind shadows on the wall behind him. Deep blacks, silvered highlights, full tonal range from pure white to pure black. No colour. Frame should feel lifted from "The Maltese Falcon", "Double Indemnity", or "The Third Man".
+```
+Source: original prompt by this repo, inspired by 1940s noir cinematography (John Alton, Gregg Toland). "Film-noir style" is a broadly used community prompt idiom.
+
+### Professional storyboard (6-panel)
+```text
+A 6-panel film storyboard laid out as a 3×2 grid, landscape 16:9 overall. Each panel is a rectangular pencil-and-marker sketch with a white margin border and a small information strip underneath.
+
+Scene: a chase through a rainy Tokyo alleyway, ending in a rooftop jump.
+
+Panel 1 — WIDE establishing: wet neon alleyway, runner entering from left; kanji signage on both walls. Info: "PANEL 1 · EXT. ALLEY · NIGHT · WIDE / static / 2s"
+Panel 2 — OTS tracking: runner mid-stride from behind; pursuer silhouette 10 m back. Info: "PANEL 2 · OTS TRACKING / follow-cam / pan-L 45° / 3s"
+Panel 3 — Close-up: runner's face, sweat, eyes darting up toward fire escape. Info: "PANEL 3 · CU RUNNER / static / 1.5s / SFX: breath"
+Panel 4 — Low angle: runner leaping onto fire-escape ladder; rain streaks. Info: "PANEL 4 · LOW ANGLE / tilt-up 30° / 2s"
+Panel 5 — Wide aerial: runner silhouetted against neon skyline, about to leap rooftops. Info: "PANEL 5 · WIDE AERIAL / crane-down / 4s"
+Panel 6 — Match cut: runner's boots landing on wet rooftop; splash. Info: "PANEL 6 · MATCH CUT CU / static / 1s / SFX: splash"
+
+Art direction: classic animation-school storyboard — pencil line-work, grey marker shading, red-pencil arrow annotations on panels 2 and 5 (camera move and action arc). Off-white paper texture background.
+```
+Source: original prompt by this repo — adapts the classic animation-school storyboard format.
 
 ---
 

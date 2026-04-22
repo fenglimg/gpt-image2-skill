@@ -4,11 +4,6 @@ A portable **Agent Skill + CLI** for OpenAI **GPT Image 2** (`gpt-image-2`). Wor
 
 Comes with a curated prompt gallery for the hard stuff: dense Chinese typography, photorealism, posters, infographics, character sheets, research-paper figures, image editing.
 
-<p align="center">
-  <img src="docs/example-tea-poster.png" alt="Chinese tea launch poster" width="32%" />
-  <img src="docs/example-transformer-arch.png" alt="Transformer architecture" width="32%" />
-  <img src="docs/example-character-sheet.png" alt="character reference sheet" width="32%" />
-</p>
 
 ---
 
@@ -74,27 +69,34 @@ Requires `uv` and Python ≥ 3.11. Dependencies (`httpx`, `python-dotenv`) auto-
 
 ## 3. Showcase
 
-All images below were produced one-shot at `--quality high`. Every prompt is in [`references/gallery.md`](references/gallery.md). Each sub-section groups images of the same aspect ratio so rows have consistent height.
+All images produced one-shot at `--quality high`. Every prompt + its source is in [`references/gallery.md`](references/gallery.md); captions below name the origin so you can trace it.
 
-### Chinese typography & posters (portrait)
+### Editorial posters & typography (portrait)
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/example-tea-poster.png" alt="Chinese tea-launch poster" /><br><em>Chinese tea-launch poster</em></td>
-<td width="50%" valign="top"><img src="docs/example-propaganda-poster.png" alt="1980s propaganda poster" /><br><em>1980s propaganda poster</em></td>
+<td width="50%" valign="top"><img src="docs/example-tea-poster.png" alt="Chinese tea-launch poster" /><br><em>Chinese tea-launch poster · community (<a href="https://mp.weixin.qq.com/s/ASxig6mFVYxrIE8-8Fthew">卡尔的AI沃茨</a>)</em></td>
+<td width="50%" valign="top"><img src="docs/example-propaganda-poster.png" alt="1980s propaganda poster" /><br><em>1980s propaganda poster · community (<a href="https://x.com/akokoi1/status/2046558658096738672">@akokoi1</a>) + adapted</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-museum-infographic.png" alt="Museum-catalog infographic (唐代襦裙)" /><br><em>Museum-catalog infographic (唐代襦裙)</em></td>
-<td valign="top"><img src="docs/example-song-dynasty-feed.png" alt="Song Dynasty social-media feed (宋朝朋友圈)" /><br><em>Song Dynasty social-media feed (宋朝朋友圈)</em></td>
+<td valign="top"><img src="docs/example-museum-infographic.png" alt="Museum-catalog infographic (唐代襦裙)" /><br><em>Museum-catalog infographic (唐代襦裙) · community (<a href="https://x.com/MrLarus/status/2045504669401653414">@MrLarus</a>)</em></td>
+<td valign="top"><img src="docs/example-song-dynasty-feed.png" alt="Song Dynasty social-media feed (宋朝朋友圈)" /><br><em>Song Dynasty social-media feed (宋朝朋友圈) · community (<a href="https://x.com/Panda20230902/status/2045385588065313057">@Panda20230902</a>)</em></td>
+</tr>
+<tr>
+<td valign="top"><img src="docs/example-saul-bass-poster.png" alt="Saul-Bass-style thriller poster — THE LAST HEIR" /><br><em>Saul-Bass-style thriller poster · original (Bass lineage)</em></td>
+<td valign="top"><img src="docs/example-manga-relationship.png" alt="A Tale of Two Cities manga relationship map" /><br><em>Manga relationship map — <em>A Tale of Two Cities</em> · community (<a href="https://x.com/cht0001/status/2046920121239908380">@cht0001</a>)</em></td>
 </tr>
 </table>
 
-### Infographics & field guides (portrait)
+### Product, food & knowledge cards (portrait)
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/example-encyclopedia-panda.png" alt="Giant Panda field-guide infographic" /><br><em>Encyclopedia field guide (Giant Panda)</em></td>
-<td width="50%" valign="top"><img src="docs/example-algorithm-box.png" alt="Algorithm pseudocode block" /><br><em>Algorithm pseudocode block (Self-Refine, Madaan et al., 2023)</em></td>
+<td width="50%" valign="top"><img src="docs/example-encyclopedia-panda.png" alt="Giant Panda field-guide infographic" /><br><em>Encyclopedia field guide (Giant Panda) · community (<a href="https://x.com/MrLarus/status/2046231542817497392">@MrLarus</a>)</em></td>
+<td width="50%" valign="top"><img src="docs/example-product-chocolate-wafer.png" alt="Chocolate wafer JSON-style product render" /><br><em>Chocolate wafer product render (JSON-style) · community (<a href="https://x.com/mehvishs25/status/2020693181730598932">@mehvishs25</a>)</em></td>
+</tr>
+<tr>
+<td colspan="2" align="center" valign="top"><img src="docs/example-food-salad-explosion.png" alt="Salad explosion food photography" width="55%" /><br><em>Salad-explosion food photography (JSON-style) · community (<a href="https://x.com/ChillaiKalan__">@ChillaiKalan__</a>)</em></td>
 </tr>
 </table>
 
@@ -102,12 +104,28 @@ All images below were produced one-shot at `--quality high`. Every prompt is in 
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/example-hitman-openai.png" alt="Hitman gameplay at OpenAI HQ" /><br><em>Hitman-style gameplay screenshot (OpenAI HQ)</em></td>
-<td width="50%" valign="top"><img src="docs/example-gta6-beach.png" alt="GTA 6 beach gameplay" /><br><em>GTA 6 gameplay — Vice City beach</em></td>
+<td width="50%" valign="top"><img src="docs/example-hitman-openai.png" alt="Hitman-style gameplay at OpenAI HQ" /><br><em>Hitman-style gameplay (OpenAI HQ) · community (<a href="https://x.com/flowersslop/status/2044734896321532390">@flowersslop</a>)</em></td>
+<td width="50%" valign="top"><img src="docs/example-gta6-beach.png" alt="GTA 6 Vice City beach gameplay" /><br><em>GTA 6 gameplay — Vice City beach · community (<a href="https://x.com/WolfRiccardo/status/2041187268711321735">@WolfRiccardo</a>)</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-photoreal-subway.png" alt="RAW iPhone photorealism" /><br><em>RAW iPhone — 42nd Street subway</em></td>
-<td valign="top"><img src="docs/example-handwritten-notebook.png" alt="Handwritten notebook flatlay" /><br><em>Handwritten notebook flatlay</em></td>
+<td valign="top"><img src="docs/example-photoreal-subway.png" alt="RAW iPhone subway photorealism" /><br><em>RAW iPhone — 42nd Street subway · community (<a href="https://x.com/WolfRiccardo/status/2041192232623972441">@WolfRiccardo</a>)</em></td>
+<td valign="top"><img src="docs/example-handwritten-notebook.png" alt="Handwritten notebook flatlay" /><br><em>Handwritten notebook flatlay · community (<a href="https://x.com/patrickassale/status/2044569086013718958">@patrickassale</a>)</em></td>
+</tr>
+<tr>
+<td valign="top"><img src="docs/example-chess-midgame.png" alt="Chess board mid-game photorealism" /><br><em>Chess board mid-game · community (<a href="https://x.com/EddGorenstein/status/2046923077993259196">@EddGorenstein</a>)</em></td>
+<td valign="top"><img src="docs/example-panorama-jungle.png" alt="360° equirectangular jungle panorama" /><br><em>360° equirectangular panorama · community (<a href="https://x.com/AIimagined/status/2046915800263802880">@AIimagined</a>)</em></td>
+</tr>
+</table>
+
+### Cinematic & animation (landscape)
+
+<table>
+<tr>
+<td width="50%" valign="top"><img src="docs/example-pixar-kitchen.png" alt="Pixar-style kitten in kitchen" /><br><em>Pixar-style 3D still (kitten + soufflé) · community style pattern</em></td>
+<td width="50%" valign="top"><img src="docs/example-noir-detective.png" alt="1940s film-noir detective photo" /><br><em>1940s film-noir still · original (Alton / Toland lineage)</em></td>
+</tr>
+<tr>
+<td colspan="2" align="center" valign="top"><img src="docs/example-storyboard.png" alt="6-panel film storyboard" width="85%" /><br><em>Professional 6-panel storyboard (Tokyo rooftop chase) · original</em></td>
 </tr>
 </table>
 
@@ -115,10 +133,10 @@ All images below were produced one-shot at `--quality high`. Every prompt is in 
 
 <table>
 <tr>
-<td colspan="2" align="center" valign="top"><img src="docs/example-character-sheet.png" alt="Cyberpunk engineer character reference sheet" width="85%" /><br><em>Cyberpunk engineer reference sheet — three-view, expressions, gear callouts</em></td>
+<td colspan="2" align="center" valign="top"><img src="docs/example-character-sheet.png" alt="Cyberpunk engineer character reference sheet" width="85%" /><br><em>Cyberpunk engineer reference sheet · community (<a href="https://x.com/MANISH1027512/status/2045013913901867334">@MANISH1027512</a>)</em></td>
 </tr>
 <tr>
-<td colspan="2" align="center" valign="top"><img src="docs/example-anime-expression-grid.png" alt="16-panel anime expression grid" width="55%" /><br><em>16-panel anime expression grid (cross-panel consistency)</em></td>
+<td colspan="2" align="center" valign="top"><img src="docs/example-anime-expression-grid.png" alt="16-panel anime expression grid" width="55%" /><br><em>16-panel anime expression grid · community (<a href="https://mp.weixin.qq.com/s/ASxig6mFVYxrIE8-8Fthew">卡尔的AI沃茨</a>)</em></td>
 </tr>
 </table>
 
@@ -126,27 +144,27 @@ All images below were produced one-shot at `--quality high`. Every prompt is in 
 
 <table>
 <tr>
-<td width="50%" valign="top"><img src="docs/example-transformer-arch.png" alt="Transformer architecture" /><br><em>Transformer encoder–decoder (Vaswani et al., 2017)</em></td>
-<td width="50%" valign="top"><img src="docs/example-rag-pipeline.png" alt="RAG pipeline" /><br><em>Retrieval-Augmented Generation pipeline (Lewis et al., 2020)</em></td>
+<td width="50%" valign="top"><img src="docs/example-transformer-arch.png" alt="Transformer encoder-decoder architecture" /><br><em>Transformer encoder–decoder · Vaswani et al., 2017</em></td>
+<td width="50%" valign="top"><img src="docs/example-rag-pipeline.png" alt="RAG pipeline diagram" /><br><em>Retrieval-Augmented Generation pipeline · Lewis et al., 2020</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-agent-architecture.png" alt="Multi-agent LLM system" /><br><em>Multi-agent LLM system (AutoGen / LangGraph / Managed Agents)</em></td>
-<td valign="top"><img src="docs/example-diffusion-chain.png" alt="Denoising diffusion chain" /><br><em>Denoising diffusion forward / reverse chain (Ho et al., 2020)</em></td>
+<td valign="top"><img src="docs/example-agent-architecture.png" alt="Multi-agent LLM system architecture" /><br><em>Multi-agent LLM system · AutoGen (Wu et al., 2023) / LangGraph / Managed Agents</em></td>
+<td valign="top"><img src="docs/example-diffusion-chain.png" alt="Denoising diffusion chain" /><br><em>Denoising diffusion forward / reverse chain · Ho et al., 2020</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-scaling-curves.png" alt="Empirical scaling laws plot" /><br><em>Empirical scaling laws (Kaplan 2020, Chinchilla 2022)</em></td>
-<td valign="top"><img src="docs/example-benchmark-heatmap.png" alt="Benchmark comparison heatmap" /><br><em>Benchmark comparison heatmap</em></td>
+<td valign="top"><img src="docs/example-scaling-curves.png" alt="Empirical scaling laws plot" /><br><em>Empirical scaling laws · Kaplan 2020, Chinchilla (Hoffmann et al., 2022)</em></td>
+<td valign="top"><img src="docs/example-benchmark-heatmap.png" alt="Benchmark comparison heatmap" /><br><em>Benchmark comparison heatmap · HELM (Liang et al., 2023)</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-ablation-bars.png" alt="Ablation bar chart" /><br><em>Ablation bar chart with error bars</em></td>
-<td valign="top"><img src="docs/example-data-sankey.png" alt="Pretraining data mixture sankey" /><br><em>LLM pretraining data-mixture sankey</em></td>
+<td valign="top"><img src="docs/example-ablation-bars.png" alt="Ablation bar chart with error bars" /><br><em>Ablation bar chart · generic reasoning-paper layout</em></td>
+<td valign="top"><img src="docs/example-data-sankey.png" alt="Pretraining data-mixture sankey" /><br><em>LLM pretraining data-mixture sankey · GPT-3 / LLaMA / Pile compositions</em></td>
 </tr>
 <tr>
-<td valign="top"><img src="docs/example-attention-heatmap.png" alt="Multi-head attention heatmaps" /><br><em>Multi-head attention heatmaps (Clark et al., 2019)</em></td>
-<td valign="top"><img src="docs/example-model-timeline.png" alt="LLM family tree timeline" /><br><em>Frontier LLM family tree, 2018–2026</em></td>
+<td valign="top"><img src="docs/example-attention-heatmap.png" alt="Multi-head attention heatmaps" /><br><em>Multi-head attention heatmaps · Clark et al., 2019</em></td>
+<td valign="top"><img src="docs/example-model-timeline.png" alt="LLM family tree timeline" /><br><em>Frontier LLM lineage, 2018–2026 · community survey format</em></td>
 </tr>
 <tr>
-<td colspan="2" align="center" valign="top"><img src="docs/example-react-trace.png" alt="ReAct reasoning trace" width="60%" /><br><em>ReAct reasoning trace (Yao et al., 2022)</em></td>
+<td colspan="2" align="center" valign="top"><img src="docs/example-react-trace.png" alt="ReAct reasoning trace" width="60%" /><br><em>ReAct reasoning trace · Yao et al., 2022</em></td>
 </tr>
 </table>
 
