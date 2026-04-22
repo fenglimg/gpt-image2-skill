@@ -139,12 +139,6 @@ All images below were produced one-shot at `--quality high`. Every prompt is in 
 <br><em>ReAct reasoning trace (Yao et al., 2022)</em>
 </td>
 </tr>
-<tr>
-<td colspan="2" valign="top">
-<img src="docs/example-prompt-injection-flow.png" alt="Indirect prompt injection attack flow" />
-<br><em>Indirect prompt-injection attack flow (Greshake et al., 2023)</em>
-</td>
-</tr>
 </table>
 
 ## Quick reference
