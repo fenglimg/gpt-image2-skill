@@ -1,6 +1,6 @@
 [project]
 name = "gpt-image-cli"
-version = "1.0.0"
+version = "1.1.0"
 description = "OpenAI GPT Image 2 command-line interface — curated prompt templates and image generation/editing CLI with every documented API parameter exposed."
 readme = "README.md"
 requires-python = ">=3.11"

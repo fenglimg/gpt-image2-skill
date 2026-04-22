@@ -135,9 +135,9 @@ def parse_args() -> argparse.Namespace:
     )
     p.add_argument(
         "--quality", default="high", choices=["auto", "low", "medium", "high"],
-        help="Rendering fidelity. Cost scales ~10× per step (low→medium→high). "
-             "Default high — gpt-image-2's typography and scene density degrade noticeably below high, "
-             "so we bias for quality. Use `--quality low` for quick iterations.",
+        help="Generations only. Rendering fidelity (cost scales ~10× per step). "
+             "Default high — gpt-image-2's typography and scene density degrade noticeably below high. "
+             "Ignored on /v1/images/edits (the endpoint rejects this parameter).",
     )
     p.add_argument("-n", "--n", type=int, default=1, help="Number of images to return. Default 1.")
     p.add_argument(
@@ -169,20 +169,22 @@ def build_payload(args: argparse.Namespace, is_edit: bool) -> dict[str, Any]:
         "model": args.model,
         "prompt": args.prompt,
         "size": resolve_size(args.size),
-        "quality": args.quality,
         "n": args.n,
     }
+    # `quality`, `background`, `moderation` are /v1/images/generations-only.
+    # /v1/images/edits rejects them with `unknown_parameter` errors.
+    if not is_edit:
+        payload["quality"] = args.quality
+        if args.background:
+            payload["background"] = args.background
+        if args.moderation:
+            payload["moderation"] = args.moderation
     if args.output_format:
         payload["output_format"] = args.output_format
     if args.output_compression is not None:
         payload["output_compression"] = args.output_compression
     if args.user:
         payload["user"] = args.user
-    if not is_edit:
-        if args.background:
-            payload["background"] = args.background
-        if args.moderation:
-            payload["moderation"] = args.moderation
     return payload
 
 
@@ -197,34 +199,81 @@ def call_generations(payload: dict[str, Any], api_key: str) -> dict[str, Any]:
     return r.json()
 
 
-def call_edits(
-    payload: dict[str, Any],
+def call_responses_edit(
+    prompt: str,
     image_paths: list[Path],
-    mask_path: Path | None,
+    args: argparse.Namespace,
     api_key: str,
 ) -> dict[str, Any]:
-    files: list[tuple[str, tuple[str, bytes, str]]] = []
+    """Reference-image edit for gpt-image-2 via the Responses API.
+
+    Why not /v1/images/edits directly? — that legacy endpoint currently accepts
+    only `dall-e-2`. To get gpt-image-2 quality on a reference image we route
+    through /v1/responses with the `image_generation` tool. The tool runs
+    gpt-image-2 under the hood and accepts the same knobs (size, quality,
+    background, output_format). Returns the canonical {data: [{b64_json}]}
+    shape so `write_outputs` works unchanged.
+    """
+    import mimetypes
+
+    content: list[dict[str, Any]] = []
     for p in image_paths:
         if not p.is_file():
             print(f"error: --image not found: {p}", file=sys.stderr)
             sys.exit(2)
-        files.append(("image", (p.name, p.read_bytes(), "application/octet-stream")))
-    if mask_path is not None:
-        if not mask_path.is_file():
-            print(f"error: --mask not found: {mask_path}", file=sys.stderr)
-            sys.exit(2)
-        files.append(("mask", (mask_path.name, mask_path.read_bytes(), "image/png")))
+        mime = mimetypes.guess_type(str(p))[0] or "image/png"
+        b64 = base64.b64encode(p.read_bytes()).decode()
+        content.append({"type": "input_image", "image_url": f"data:{mime};base64,{b64}"})
+    content.append({"type": "input_text", "text": prompt})
 
-    data = {k: str(v) for k, v in payload.items()}
+    tool: dict[str, Any] = {"type": "image_generation", "model": args.model}
+    resolved_size = resolve_size(args.size)
+    if resolved_size and resolved_size != "auto":
+        tool["size"] = resolved_size
+    if args.quality:
+        tool["quality"] = args.quality
+    if args.output_format:
+        tool["output_format"] = args.output_format
+    if args.background:
+        tool["background"] = args.background
+
+    body = {
+        "model": "gpt-4o",
+        "input": [{"role": "user", "content": content}],
+        "tools": [tool],
+        "tool_choice": "auto",
+    }
+
     r = httpx.post(
-        f"{API_BASE}/edits",
-        headers={"Authorization": f"Bearer {api_key}"},
-        data=data,
-        files=files,
+        "https://api.openai.com/v1/responses",
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        json=body,
         timeout=TIMEOUT_SECONDS,
     )
     r.raise_for_status()
-    return r.json()
+    resp = r.json()
+
+    data_items: list[dict[str, Any]] = []
+    refusal_text: str | None = None
+    for item in resp.get("output", []):
+        if item.get("type") == "image_generation_call" and item.get("status") == "completed":
+            result = item.get("result")
+            if isinstance(result, str):
+                data_items.append({"b64_json": result})
+        elif item.get("type") == "message":
+            for c in item.get("content", []) or []:
+                if c.get("type") == "output_text":
+                    refusal_text = c.get("text", "")
+
+    if not data_items:
+        msg = (refusal_text or "unknown")[:500]
+        print(
+            f"error: Responses API returned no image. Likely a content-policy refusal.\n"
+            f"model replied: {msg}",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    return {"data": data_items}
 
 
 def write_outputs(
@@ -272,15 +321,19 @@ def main() -> int:
     out_path = Path(args.file).expanduser().resolve() if args.file else default_output_path(args.prompt, ext)
 
     is_edit = bool(args.image)
-    if args.mask and not is_edit:
-        print("error: --mask requires --image (edits endpoint only)", file=sys.stderr)
+    if args.mask:
+        print(
+            "error: --mask (alpha-channel inpainting) is not supported for gpt-image-2. "
+            "The Responses API image_generation tool does not accept masks.",
+            file=sys.stderr,
+        )
         return 2
 
     payload = build_payload(args, is_edit)
 
     try:
         if is_edit:
-            resp = call_edits(payload, args.image or [], args.mask, api_key)
+            resp = call_responses_edit(args.prompt, args.image, args, api_key)
         else:
             resp = call_generations(payload, api_key)
     except httpx.HTTPStatusError as e:

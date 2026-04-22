@@ -1,7 +1,7 @@
 {
   "name": "gpt-image",
   "description": "OpenAI GPT Image 2 skill for Claude Code / Codex / OpenCode. Curated prompt templates and text-to-image templates across 10+ categories (Chinese typography, research paper figures, games, photography, posters, anime, cinematic, …). Wraps /v1/images/generations and /v1/images/edits with every API parameter exposed.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "wuyoscar",
     "url": "https://github.com/wuyoscar"
