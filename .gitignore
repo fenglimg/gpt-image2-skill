@@ -36,6 +36,7 @@ dist/
 
 # Claude Code runtime state (OMC-style)
 .omc/
+.omx/
 .claude/state/
 
 # Stray local tool configs (mcporter etc. if cwd happens to be this repo)

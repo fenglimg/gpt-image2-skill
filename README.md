@@ -5476,6 +5476,489 @@ open("docs/example-vaporwave-mall-fountain.png", "wb").write(base64.b64decode(re
 
 ---
 
+## 🌐 Community Prompt Picks
+Curated from real community posts on **Reddit** and **Xiaohongshu**. Each remake preserves the original **author handle / ID**, **post title**, and **source link** so attribution stays visible.
+
+- Manifest: [docs/community-prompt-picks.json](docs/community-prompt-picks.json)
+- Index: [docs/community-prompt-index.md](docs/community-prompt-index.md)
+- Coverage: Realism & Photography (2), Maps & Game Worlds (3), Game Screenshots (3), Concept Sheets (1), Posters & Oddities (4), Posters & Infographics (2), Research & Explanatory Figures (3), Commercial & Product Visuals (2)
+
+### Realism & Photography
+
+#### Community No. C1 · Everyday candid realism
+
+![Everyday candid realism](docs/example-community-reddit-01-candid-realism.png)
+
+*Source: [ChatGPT 1.5 prompt to add realism in images](https://www.reddit.com/r/ChatGPT/comments/1ppvoj5/chatgpt_15_prompt_to_add_realism_in_images/) — u/LogicalChart3205*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a raw realistic candid natural amateur photo of an unremarkable everyday street corner moment. Keep the entire background in focus. Captured on a Samsung Galaxy S21 Ultra, 24mm lens look, f/8, flat natural lighting, natural soft shadows, low contrast, disposable-camera vibe, slight JPEG artifacts, tiny imperfections, unpolished unedited feel, boring reality, casual snapshot, non-fictional everyday realism.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/LogicalChart3205`
+- Author ID: `LogicalChart3205`
+- Original post: [ChatGPT 1.5 prompt to add realism in images](https://www.reddit.com/r/ChatGPT/comments/1ppvoj5/chatgpt_15_prompt_to_add_realism_in_images/)
+- Original prompt / excerpt used for adaptation: `1:1 aspect ratio. Raw realistic candid natural amateur photo, background in focus, captured on Samsung Galaxy S21 Ultra, 24mm lens, f/8, low contrast, disposable camera vibe.`
+
+</details>
+
+#### Community No. C2 · City rooftop paparazzi snapshot
+
+![City rooftop paparazzi snapshot](docs/example-community-reddit-02-city-rooftop.png)
+
+*Source: [I used a Custom Gem (Gemini) to generate prompts for consistent realistic images](https://www.reddit.com/r/GeminiAI/comments/1rr9nn1/i_used_a_custom_gem_gemini_to_generate_prompts/) — u/LazySatisfaction6862*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a nighttime rooftop paparazzi-style snapshot. A stylish woman in a black silk slip dress, sheer black tights, and a thin gold chain necklace stands relaxed on a city rooftop terrace holding a crystal wine glass, weight shifted to one leg, slight smirk, confident direct eye contact. Background: blurred distant city lights, dark skyline, minimal lounge furniture. Lighting: hard direct camera flash with sharp shadows, high contrast, warm color grading, candid celebrity-photography energy. Shot at eye level with a 35mm lens look, authentic nightlife snapshot, subtle film grain, natural skin texture, crisp details, non-AI aesthetic.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/LazySatisfaction6862`
+- Author ID: `LazySatisfaction6862`
+- Original post: [I used a Custom Gem (Gemini) to generate prompts for consistent realistic images](https://www.reddit.com/r/GeminiAI/comments/1rr9nn1/i_used_a_custom_gem_gemini_to_generate_prompts/)
+- Original prompt / excerpt used for adaptation: `Prompt 4 — City Rooftop: black silk slip dress, wine glass, rooftop terrace at night, blurred city lights, hard direct camera flash, paparazzi style snapshot.`
+
+</details>
+
+### Maps & Game Worlds
+
+#### Community No. C3 · Isometric fantasy village map
+
+![Isometric fantasy village map](docs/example-community-reddit-03-isometric-fantasy-village.png)
+
+*Source: [Isometric Maps (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1hkqr4x/isometric_maps_prompts_included/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a vibrant isometric fantasy village map with a clean grid-based layout using 3x3 meter tiles. Include wooden houses with thatched roofs, cobblestone paths, and a central stone fountain. One corner of the map rises into a small grassy hill about 2 meters high with stairs connecting to the lower ground. Keep the isometric angle precise and game-ready. Warm sunlight sends clear rays and long shadows across the rooftops. Make the scene readable like a handcrafted strategy-game map, with crisp tile logic, charming environmental detail, and rich but controlled color.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Isometric Maps (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1hkqr4x/isometric_maps_prompts_included/)
+- Original prompt / excerpt used for adaptation: `A vibrant isometric fantasy village featuring a grid-based layout with 3x3 meter tiles, wooden houses, cobblestone paths, a central fountain, a small hill, and warm lighting.`
+
+</details>
+
+#### Community No. C4 · Pixel art breakfast still life
+
+![Pixel art breakfast still life](docs/example-community-reddit-05-pixel-breakfast.png)
+
+*Source: [Animated Pixel Art Food (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1jmodcx/animated_pixel_art_food_prompts_included/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a nostalgic pixel-art breakfast still life. Show a tall stack of fluffy golden pancakes drizzled with glossy maple syrup, topped with strawberries and blueberries, with pixelated steam rising into the air. The plate sits on a pastel tablecloth and a hot cup of coffee rests in the background. Use rich breakfast colors, careful lighting, and delicious texture detail while staying true to clean, readable pixel art.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Animated Pixel Art Food (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1jmodcx/animated_pixel_art_food_prompts_included/)
+- Original prompt / excerpt used for adaptation: `A pixel art still life featuring fluffy pancakes with maple syrup, strawberries, blueberries, pixelated steam, a pastel tablecloth, and coffee in the background.`
+
+</details>
+
+#### Community No. C5 · Low-poly samurai strategy village
+
+![Low-poly samurai strategy village](docs/example-community-reddit-11-lowpoly-samurai-strategy.png)
+
+*Source: [Low-Poly Strategy Video Games In Japan (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1l2d5dr/lowpoly_strategy_video_games_in_japan_prompts/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create an isometric low-poly strategy game screenshot of a mountainous Japanese village with rice terraces, torii gates, samurai and archer units in formation, and a tactical RTS interface. Include unit selection boxes, resource counters for rice and wood, fog-of-war minimap, command overlays, and warm daylight with soft shadows. Stylized but readable, modern indie strategy game key art, 16:9.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Low-Poly Strategy Video Games In Japan (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1l2d5dr/lowpoly_strategy_video_games_in_japan_prompts/)
+- Original prompt / excerpt used for adaptation: `Isometric low poly view of a mountainous Japanese village with rice terraces and torii gates, RTS interface, unit selection boxes, resource counters, minimap with fog of war, archers and samurai in formation.`
+
+</details>
+
+### Game Screenshots
+
+#### Community No. C6 · Anime open-world adventure HUD
+
+![Anime open-world adventure HUD](docs/example-community-reddit-06-anime-open-world.png)
+
+*Source: [Anime Style Video Games (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1lh2l98/anime_style_video_games_prompts_included/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a third-person over-the-shoulder screenshot from a nostalgic anime-style open-world adventure game. The protagonist stands in a lush forest with detailed foliage and vibrant shading, drawing a bow toward distant enemies. Add a clean on-screen HUD: quest log, compass at the top, character portrait and status effects at bottom left, subtle rain droplets on screen, and sun rays filtering through trees. Keep the composition dynamic, the forest immersive, and the UI believable like a premium action-RPG screenshot.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Anime Style Video Games (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1lh2l98/anime_style_video_games_prompts_included/)
+- Original prompt / excerpt used for adaptation: `Third-person over-the-shoulder anime-style open-world adventure in a lush forest, with quest log, compass, status effects, rain droplets on screen, and the protagonist aiming a bow.`
+
+</details>
+
+#### Community No. C7 · Retro Japanese town pixel RPG
+
+![Retro Japanese town pixel RPG](docs/example-community-reddit-10-retro-japan-rpg.png)
+
+*Source: [Retro Video Games In Japan (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1kozn4u/retro_video_games_in_japan_prompts_included/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create an isometric pixel-art RPG screenshot of a traditional Japanese village during cherry blossom season. Sakura petals drift through the air, a samurai player character practices sword moves in the square, villagers watch nearby, and the interface includes an inventory panel, stamina gauge, skill cooldown timers, and subtle quest UI. Cozy retro console feeling, soft ambient pastel lighting, crisp pixel details, 16:9 gameplay composition.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Retro Video Games In Japan (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1kozn4u/retro_video_games_in_japan_prompts_included/)
+- Original prompt / excerpt used for adaptation: `Isometric pixel art depiction of a traditional Japanese village during cherry blossom season, sakura petals gently falling, with RPG HUD, inventory, stamina, cooldown timers, and soft ambient pastel lighting.`
+
+</details>
+
+#### Community No. C8 · Cyberpunk Europe action HUD
+
+![Cyberpunk Europe action HUD](docs/example-community-reddit-12-cyberpunk-europe-action.png)
+
+*Source: [Cyberpunk Video Games In European Cities (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1kzzy77/cyberpunk_video_games_in_european_cities_prompts/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a third-person cyberpunk action game screenshot set in a neon-soaked European capital at night. The protagonist has glowing cybernetic implants and stands on rain-slick streets near a famous landmark while holograms, drones, and flying traffic crowd the skyline. Add a polished game HUD with health bar, ammo count, radar, stealth/energy meters, and mission overlays. Vivid cyan-magenta palette, wet reflections, cinematic intensity, 16:9.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Cyberpunk Video Games In European Cities (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1kzzy77/cyberpunk_video_games_in_european_cities_prompts/)
+- Original prompt / excerpt used for adaptation: `Third-person cyberpunk game scene in a neon-lit European capital with holograms, rain reflections, drones, glowing implants, and a dynamic HUD with health, ammo, radar, and mission overlays.`
+
+</details>
+
+### Concept Sheets
+
+#### Community No. C9 · Elven archer sketchbook concept sheet
+
+![Elven archer sketchbook concept sheet](docs/example-community-reddit-08-elven-archer-sheet.png)
+
+*Source: [Fantasy Concept Arts with V7 (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1jrcpan/fantasy_concept_arts_with_v7_prompts_included/) — u/Vegetable_Writer_443*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a fantasy concept art sketchbook page centered on a mystical elven archer with flowing robes. Render the main figure in loose graphite strokes with precise ink detailing. Surround the hero sketch with side views exploring cloak variations, a half-finished bow study with measurements, thumbnail action poses, handwritten annotations about enchanted embroidery patterns, and faint watercolor tests bleeding into the margins in forest-green and silver. The page should feel like a real art director's development sheet: exploratory, beautiful, readable, and richly tactile.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/Vegetable_Writer_443`
+- Author ID: `Vegetable_Writer_443`
+- Original post: [Fantasy Concept Arts with V7 (Prompts Included)](https://www.reddit.com/r/midjourney/comments/1jrcpan/fantasy_concept_arts_with_v7_prompts_included/)
+- Original prompt / excerpt used for adaptation: `A mystical elven archer with flowing robes, drawn in loose graphite strokes with ink detailing, side views, cloak variations, annotations, bow study, and faint watercolor tests in the margins.`
+
+</details>
+
+### Posters & Oddities
+
+#### Community No. C10 · VHS grocery-store chaos still
+
+![VHS grocery-store chaos still](docs/example-community-reddit-09-vhs-grocery-chaos.png)
+
+*Source: [tried to push the new image model with an insanely complicated prompt and it... just did it](https://www.reddit.com/r/ChatGPT/comments/1jk0p3v/tried_to_push_the_new_image_model_with_an/) — u/gavinpurcell*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a chaotic security-camera still from a 1990s grocery store. A man in full medieval armor is frozen mid-sprint stealing several rotisserie chickens past the dairy section. Overhead fluorescent lights reflect off the armor. The floor is baby-blue tile. Add a timestamp reading "08/13/96 04:44 AM" and a wall poster saying "NEW! TOASTER STRUDELS!". Make it low-fidelity, absurd, slightly intense, with motion blur, VHS color bleed, surveillance noise, and authentic analog-store lighting.
+
+**Source record**
+
+- Platform: `reddit`
+- Original author: `u/gavinpurcell`
+- Author ID: `gavinpurcell`
+- Original post: [tried to push the new image model with an insanely complicated prompt and it... just did it](https://www.reddit.com/r/ChatGPT/comments/1jk0p3v/tried_to_push_the_new_image_model_with_an/)
+- Original prompt / excerpt used for adaptation: `A security cam still from a 1990s grocery store showing a man in full medieval armor stealing rotisserie chickens, timestamp 08/13/96 04:44 AM, VHS color bleed.`
+
+</details>
+
+#### Community No. C11 · Epic silhouette worldbuilding poster
+
+![Epic silhouette worldbuilding poster](docs/example-community-xhs-01-epic-silhouette-poster.png)
+
+*Source: [被image-2震住了，直接封神](https://www.xiaohongshu.com/explore/69e324cd0000000021039ca9) — 不扛摄影机的AI导演-WHY · 64fde79600000000060316da*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Design a collector's-edition epic poster for an original fantasy theme called "The Celestial Archive". The outer silhouette is a graceful side profile of a lone archivist, and inside that silhouette a complete world naturally grows: observatories, floating stairways, bridges, ancient libraries, moons, towers, relics, and distant pilgrims. Make it feel like a narrative silhouette composition rather than a collage. Style: cinematic poster fused with dreamy watercolor illustration, quiet and majestic, sacred and nostalgic, with paper grain, soft mist, brush-edge texture, elegant negative space, and a discreet signature "WHY" integrated naturally as part of the layout.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `不扛摄影机的AI导演-WHY · 64fde79600000000060316da`
+- Author ID: `64fde79600000000060316da`
+- Original post: [被image-2震住了，直接封神](https://www.xiaohongshu.com/explore/69e324cd0000000021039ca9)
+- Original prompt / excerpt used for adaptation: `收藏版史诗海报，人物侧脸剪影中生长出完整世界观与经典场景。整体偏电影海报+梦幻水彩插画风，安静、宏大、神圣、怀旧。`
+
+</details>
+
+#### Community No. C12 · Dual-exposure narrative poster
+
+![Dual-exposure narrative poster](docs/example-community-xhs-06-dual-exposure-poster.png)
+
+*Source: [GPT Image 2 双重曝光风格](https://www.xiaohongshu.com/explore/69e7a01700000000230153f3) — 卡片猫 · 68dc98f4000000003100c908*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a high-aesthetic collector poster in a "silhouette universe / dual-exposure narrative" style for an original theme called "Moonlit Dragon Court". Choose the most symbolic outer contour yourself — not a bottle or hourglass, but a more resonant form like a mask, archway, wing, throne, face profile, or luminous gate. Inside and around that contour, let a complete theme world naturally unfold: palaces, bridges, moonlit water, dragon motifs, relics, banners, distant figures, and layered atmospheric depth. The image must feel like a premium novel/anime poster: elegant, mythic, poetic, not cluttered, not collage-like, with strong visual memory and restrained luxurious design.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `卡片猫 · 68dc98f4000000003100c908`
+- Author ID: `68dc98f4000000003100c908`
+- Original post: [GPT Image 2 双重曝光风格](https://www.xiaohongshu.com/explore/69e7a01700000000230153f3)
+- Original prompt / excerpt used for adaptation: `高审美的“轮廓宇宙 / 收藏版叙事海报”风格作品……让完整主题世界自然生长在象征性轮廓之中。`
+
+</details>
+
+#### Community No. C13 · Journey to the West silhouette epic poster
+
+![Journey to the West silhouette epic poster](docs/example-community-xhs-10-journey-west-silhouette.png)
+
+*Source: [image-2提示词-四大名著，只能说太牛X](https://www.xiaohongshu.com/explore/69e78cd4000000002103bdd3) — 不扛摄影机的AI导演-WHY · 64fde79600000000060316da*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a collector-edition epic narrative poster for 《西游记》. Use a giant elegant side-profile silhouette as the outer contour, and let the interior grow into a complete Journey to the West world: Monkey King, monk, pig and sand monk, flaming mountain, heavenly palace, demons, magic staff, clouds, temples, mountains, relics, and symbolic motifs. Not a collage but a refined silhouette-filled narrative composition, blending cinematic poster design with dreamy watercolor illustration, soft atmospheric perspective, paper grain, restrained layout, large breathing space, poetic and legendary mood. Add a subtle refined signature mark “WHY” integrated into the poster design.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `不扛摄影机的AI导演-WHY · 64fde79600000000060316da`
+- Author ID: `64fde79600000000060316da`
+- Original post: [image-2提示词-四大名著，只能说太牛X](https://www.xiaohongshu.com/explore/69e78cd4000000002103bdd3)
+- Original prompt / excerpt used for adaptation: `根据【XXX主题】自动生成一张收藏版史诗叙事海报：巨大优雅的人物侧脸剪影作为外轮廓，剪影内部自动生长出最契合该主题的完整世界观、标志性场景、角色关系、象征符号、关键建筑、生物、道具与氛围。`
+
+</details>
+
+### Posters & Infographics
+
+#### Community No. C14 · Modular encyclopedia infographic card
+
+![Modular encyclopedia infographic card](docs/example-community-xhs-02-snow-leopard-encyclopedia-card.png)
+
+*Source: [GPT image 2牛逼！！！！附指令](https://www.xiaohongshu.com/explore/69e832170000000023012116) — 别动我tokens · 69ae2d1b000000003301d440*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Generate a high-quality vertical science encyclopedia card about "雪豹 Snow Leopard". It should feel like a collectible modular knowledge infographic rather than a normal poster. Include one beautiful hero illustration, several zoomed-in detail callouts, rounded information modules, clear title hierarchy, compact encyclopedia content, rating cards, and a Top 5 facts module. Suggested sections: basic profile, habitat, appearance, hunting behavior, conservation risks, climate adaptation, suitable environment, and quick scorecard. Visual style: clean light background, soft palette, subtle shadows, refined icons, rounded info boxes, dense but readable information, polished editorial layout, high collection value.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `别动我tokens · 69ae2d1b000000003301d440`
+- Author ID: `69ae2d1b000000003301d440`
+- Original post: [GPT image 2牛逼！！！！附指令](https://www.xiaohongshu.com/explore/69e832170000000023012116)
+- Original prompt / excerpt used for adaptation: `请根据【主题】生成一张高质量竖版「科普百科图」……图鉴感、百科感、信息结构感、收藏感的模块化科普信息图。`
+
+</details>
+
+#### Community No. C15 · Weekend Seoul travel guide poster
+
+![Weekend Seoul travel guide poster](docs/example-community-xhs-09-seoul-travel-guide.png)
+
+*Source: [GPT image 2生成旅游攻略图让人惊叹](https://www.xiaohongshu.com/explore/69e8cd0d0000000023007215) — Mena · 5a4721a6e8ac2b17598e94de*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Generate a polished one-page Chinese travel guide poster for a fast weekend trip from Nanjing to Seoul in May. Use LARGE highly legible Chinese text, short phrases only, and no paragraph blocks. Focus on shopping, skincare, and a stylish Seongsu-dong route. Layout: big title, 4 modules only (行程 / 区域推荐 / 购物清单 / 美妆护肤), each with 2 to 4 short bullet points, plus a small cute route map with icons. Clean editorial infographic style, soft pastel colors, neat spacing, high readability, modern Xiaohongshu travel card aesthetic. Avoid tiny text, avoid dense explanations, avoid garbled characters.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `Mena · 5a4721a6e8ac2b17598e94de`
+- Author ID: `5a4721a6e8ac2b17598e94de`
+- Original post: [GPT image 2生成旅游攻略图让人惊叹](https://www.xiaohongshu.com/explore/69e8cd0d0000000023007215)
+- Original prompt / excerpt used for adaptation: `帮我生成一张5月份周末从南京到首尔的特种兵旅游攻略，重点是逛街，皮肤管理。`
+
+</details>
+
+### Research & Explanatory Figures
+
+#### Community No. C16 · ICLR-style method figure
+
+![ICLR-style method figure](docs/example-community-xhs-03-hmr-iclr-figure.png)
+
+*Source: [参考计算机顶会ICLR风格的AI绘图初步尝试](https://www.xiaohongshu.com/explore/69d396140000000023012282) — AI垂钓者 · 6104aff6000000000101c5e8*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a polished ICLR-style Figure 1 for an imaginary method called "Hierarchical Memory Routing for Long-Context Multimodal Reasoning (HMR)". The top band shows the failure mode of naive long-context multimodal processing: one overcrowded horizontal token stream mixing text, image patches, retrieved documents, tool traces, and audio snippets, with red-orange warning accents for interference, attention dilution, memory collision, and quadratic compute cost. A clean horizontal divider separates the main lower panel, which presents the HMR framework as a spacious modular loop. Center: a Reasoning Controller with stages Observe_t to Update_t. Left: a three-level Memory Hierarchy with working cache, episodic memory, and semantic knowledge base. Right: Multimodal Streams entering selectively through routing paths. Bottom right: sparse experts activated only when needed. White background, vector-clean styling, neutral gray plus cool accents, minimal but legible labels, conference-paper clarity, no poster aesthetics.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `AI垂钓者 · 6104aff6000000000101c5e8`
+- Author ID: `6104aff6000000000101c5e8`
+- Original post: [参考计算机顶会ICLR风格的AI绘图初步尝试](https://www.xiaohongshu.com/explore/69d396140000000023012282)
+- Original prompt / excerpt used for adaptation: `为ICLR论文生成一幅高质量的Figure 1，聚焦于“Hierarchical Memory Routing for Long-Context Multimodal Reasoning”。`
+
+</details>
+
+#### Community No. C17 · Minimal research illustration prompt
+
+![Minimal research illustration prompt](docs/example-community-xhs-05-llm-agent-research-illustration.png)
+
+*Source: [GPT4o 还真能画科研配图啊！！！提示词见正文](https://www.xiaohongshu.com/explore/67e414010000000007037315) — 路导 · 5e4017090000000001003824*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Draw a research-paper illustration showing a closed-loop LLM agent system. The left side begins with a user prompt, then flows into a planner, tool-use engine, retrieval module, memory buffer, and a final verifier that feeds corrections back into the system. Use a restrained academic palette of blue, slate, and orange accents. Style it like a clean paper illustration: vector-like blocks, precise arrows, sparse labels, balanced whitespace, and a clear Figure 1 narrative from problem input to verified output.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `路导 · 5e4017090000000001003824`
+- Author ID: `5e4017090000000001003824`
+- Original post: [GPT4o 还真能画科研配图啊！！！提示词见正文](https://www.xiaohongshu.com/explore/67e414010000000007037315)
+- Original prompt / excerpt used for adaptation: `给我画一张论文的科研配图。「配图的文字描述」。`
+
+</details>
+
+#### Community No. C18 · Robotics knowledge graph poster
+
+![Robotics knowledge graph poster](docs/example-community-xhs-11-robotics-knowledge-graph.png)
+
+*Source: [使用 gpt-image-2 生成机器人领域知识图谱](https://www.xiaohongshu.com/explore/69e861e9000000001a026b8c) — 爱学习的皮卡菟 · 6507f013000000001603a52d*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Use Chinese to generate a clean robotics knowledge overview poster with VERY readable large text. Do not make it too dense. Layout: one title plus 6 modules only — 机器人类型, 感知, 控制, 操作, 应用, 代表数据集. Each module should have a simple icon and 2 to 4 short bullet phrases. White background, blue technical accent color, clear hierarchy, generous spacing, crisp Chinese typography, educational infographic style. Avoid duplicated sections, avoid tiny text, avoid乱码, avoid overfilled content.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `爱学习的皮卡菟 · 6507f013000000001603a52d`
+- Author ID: `6507f013000000001603a52d`
+- Original post: [使用 gpt-image-2 生成机器人领域知识图谱](https://www.xiaohongshu.com/explore/69e861e9000000001a026b8c)
+- Original prompt / excerpt used for adaptation: `用中文生成一张高信息量的图片，全面介绍机器人领域知识，但这里适配为更高可读性的精简版海报。`
+
+</details>
+
+### Commercial & Product Visuals
+
+#### Community No. C19 · Universal commercial poster template
+
+![Universal commercial poster template](docs/example-community-xhs-07-aurora-oolong-poster.png)
+
+*Source: [GPT Image-2 全面开放！收好这些通用提示词](https://www.xiaohongshu.com/explore/69e7878300000000230050bb) — 木石成方 · 67c2649d000000000e011cbf*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Design a high-end commercial poster for a product called "Aurora Oolong Cold Brew". Minimalist style, clean frame, centered hero bottle and tea glass, soft studio lighting, realistic material textures, elegant condensation details, generous negative space, premium brand visual language, cinematic light and shadow, refined packaging typography, and ultra-detailed finish. Make it feel like a luxury beverage campaign that could run in a subway lightbox or fashion magazine.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `木石成方 · 67c2649d000000000e011cbf`
+- Author ID: `67c2649d000000000e011cbf`
+- Original post: [GPT Image-2 全面开放！收好这些通用提示词](https://www.xiaohongshu.com/explore/69e7878300000000230050bb)
+- Original prompt / excerpt used for adaptation: `商业海报：一张高端质感的[产品名称]广告海报，极简风格，主体居中构图，柔和工作室灯光，真实材质质感，背景留白。`
+
+</details>
+
+#### Community No. C20 · Xiaohongshu cooking tutorial card
+
+![Xiaohongshu cooking tutorial card](docs/example-community-xhs-08-cooking-tutorial-card.png)
+
+*Source: [GPT-Image-2 提示词：家常菜料理图](https://www.xiaohongshu.com/explore/69e8eeed0000000021004a54) — 算法人生 · 66dd79d4000000001d0312e2*
+
+<details>
+<summary>Prompt + source record</summary>
+
+**Adapted prompt**
+
+Create a Xiaohongshu-style viral cooking tutorial image in a 3:4 vertical layout for homemade scallion oil noodles. Cozy home-cooking vibe, warm inviting lifestyle aesthetic, 4 to 6 step grid layout, clean spacing, realistic food photography, soft natural lighting, slight film tone, warm color grading, visible oil sheen, steam, sauce texture, and hands interacting with the food. Add small Chinese annotations such as 切葱, 熬油, 拌面, 出锅. Avoid overcrowding or excessive text.
+
+**Source record**
+
+- Platform: `xiaohongshu`
+- Original author: `算法人生 · 66dd79d4000000001d0312e2`
+- Author ID: `66dd79d4000000001d0312e2`
+- Original post: [GPT-Image-2 提示词：家常菜料理图](https://www.xiaohongshu.com/explore/69e8eeed0000000021004a54)
+- Original prompt / excerpt used for adaptation: `Create a Xiaohongshu-style viral cooking tutorial image (3:4 vertical), cozy home cooking vibe, 4–6 step grid layout, soft natural lighting, warm color grading, realistic food photography, small Chinese annotations like 切块 / 搅拌 / 下锅 / 翻炒.`
+
+</details>
+
 ## 🙏 Acknowledgements
 
 Per-entry credit (author @handle, tweet/article URL, paper citation) is **inline with every gallery entry** above. This section lists only the large archives and official sources we built on top of:
