@@ -1,4 +1,4 @@
-<h1 align="center">GPT-Image-2-Skill</h1>
+<h1 align="center">GPT Image 2 Skill</h1>
 <p align="center"><em>OpenAI GPT Image 2 skill + CLI — curated, copy-paste prompts and a thin wrapper around the official <code>client.images.generate()</code> and <code>client.images.edit()</code> SDK calls.</em></p>
 
 <p align="center">
@@ -8,42 +8,49 @@
   <img src="https://img.shields.io/badge/python-%E2%89%A53.11-blue.svg" alt="Python ≥ 3.11"/>
 </p>
 
+<p align="center">
+  <img src="docs/gptimage2skill-banner.png" alt="GPTImage2Skill banner" width="100%"/>
+</p>
+
 ---
 
 ## 📥 Install
 
-**Claude Code** (as a plugin — auto-updates after `/plugin marketplace add`):
+### Claude Code
 
 ```text
 /plugin marketplace add wuyoscar/gpt_image_2_skill
 /plugin install gpt-image@wuyoscar-skills
 ```
 
-**Codex / OpenCode / any SKILL.md-aware agent** — clone the repo and point the agent at `skills/gpt-image/SKILL.md`:
+### Codex
 
-```bash
-# install
-git clone https://github.com/wuyoscar/gpt_image_2_skill.git
-
-# update
-cd gpt_image_2_skill && git pull
+```text
+$skill-installer https://github.com/wuyoscar/gpt_image_2_skill/tree/main/skills/gpt-image
 ```
 
-**Plain CLI** (no agent — requires [`uv`](https://github.com/astral-sh/uv) + Python ≥ 3.11):
+### Manual skill install
 
 ```bash
-# one-shot (always fetches HEAD)
+git clone https://github.com/wuyoscar/gpt_image_2_skill.git
+cd gpt_image_2_skill
+mkdir -p ~/.codex/skills
+ln -s "$PWD/skills/gpt-image" ~/.codex/skills/gpt-image
+```
+
+### CLI
+
+```bash
 uvx --from git+https://github.com/wuyoscar/gpt_image_2_skill gpt-image -p "a cat astronaut"
 
 # or install to PATH
 uv tool install git+https://github.com/wuyoscar/gpt_image_2_skill
 gpt-image -p "a cat astronaut"
-
-# update a globally installed CLI
-uv tool upgrade gpt-image-cli
 ```
 
-Reads `OPENAI_API_KEY` from the environment or `~/.env`. No secrets in code.
+
+
+Reads `OPENAI_API_KEY` from the environment or `~/.env`.
 
 ---
 
@@ -75,6 +82,9 @@ Under the hood: `POST /v1/images/edits` (multipart form), the official endpoint 
 
 ### Parameters (complete)
 
+<details>
+<summary><strong>Show full parameter reference</strong></summary>
+
 | Flag | Values | Default | Applies to | Notes |
 |---|---|---|---|---|
 | `-p, --prompt` | str | — required | both | Full prompt text. |
@@ -90,11 +100,16 @@ Under the hood: `POST /v1/images/edits` (multipart form), the official endpoint 
 | `--format` | `png` · `jpeg` · `webp` | `png` | both | Response encoding. |
 | `--compression` | 0–100 | — | both | JPEG/WebP only. |
 
+</details>
+
 Exit codes: `0` success · `1` API/refusal error (full response body echoed to stderr) · `2` bad args or missing `OPENAI_API_KEY`.
 
 ---
 
 ## 📖 Prompting Fundamentals
+
+<details>
+<summary><strong>Show prompting notes</strong></summary>
 
 Distilled from OpenAI's [official GPT Image prompting guide](https://github.com/openai/openai-cookbook/blob/main/examples/multimodal/image-gen-models-prompting-guide.ipynb) (also archived locally at [`skills/gpt-image/references/openai-cookbook.md`](skills/gpt-image/references/openai-cookbook.md) — loaded on demand by the skill when you ask about parameter semantics, edits, UI mockups, pitch-deck slides, scientific visuals, virtual try-on, billboard mockups, or translation edits):
 
@@ -109,6 +124,8 @@ Distilled from OpenAI's [official GPT Image prompting guide](https://github.com/
 **Two local references are loaded by the skill as needed:**
 - [`skills/gpt-image/references/craft.md`](skills/gpt-image/references/craft.md) — 12 cross-cutting principles (exact-text-in-quotes, aspect-ratio-first, camera/shot language, scene density, style anchoring, negation, reference-based unlocks, dense Chinese text, three-glances test).
 - [`skills/gpt-image/references/openai-cookbook.md`](skills/gpt-image/references/openai-cookbook.md) — verbatim Markdown capture of OpenAI's cookbook (1004 lines), including the authoritative parameter-coverage table and every §4 / §5 use-case example.
+
+</details>
 
 ---
 
