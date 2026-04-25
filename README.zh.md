@@ -35,7 +35,7 @@
   </tr>
   <tr>
     <td>最后更新</td>
-    <td><strong>2026-04-24</strong></td>
+    <td><strong>2026-04-25</strong></td>
   </tr>
   <tr>
     <td>文档</td>

@@ -35,7 +35,7 @@
   </tr>
   <tr>
     <td>Last update</td>
-    <td><strong>2026-04-24</strong></td>
+    <td><strong>2026-04-25</strong></td>
   </tr>
   <tr>
     <td>Docs</td>
