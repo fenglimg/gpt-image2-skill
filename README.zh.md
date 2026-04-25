@@ -2,6 +2,10 @@
 <p align="center"><em>OpenAI GPT Image 2 Agentic Skill + CLI — 面向支持 Skill 的 Agent 运行时的精选可复用提示词与可运行示例。</em></p>
 
 <p align="center">
+  <a href="README.md">English</a> · <a href="README.zh.md"><strong>中文</strong></a>
+</p>
+
+<p align="center">
   <a href="https://github.com/wuyoscar/gpt_image_2_skill/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="CC BY 4.0"/></a>
   <a href="https://github.com/wuyoscar/gpt_image_2_skill/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
   <img src="https://img.shields.io/badge/model-gpt--image--2-purple.svg" alt="模型: gpt-image-2"/>

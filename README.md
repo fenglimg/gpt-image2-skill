@@ -2,6 +2,10 @@
 <p align="center"><em>OpenAI GPT Image 2 agentic skill + CLI — curated, copy-paste prompts and runnable examples for skill-capable agents.</em></p>
 
 <p align="center">
+  <a href="README.md"><strong>English</strong></a> · <a href="README.zh.md">中文</a>
+</p>
+
+<p align="center">
   <a href="https://github.com/wuyoscar/gpt_image_2_skill/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="CC BY 4.0"/></a>
   <a href="https://github.com/wuyoscar/gpt_image_2_skill/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
   <img src="https://img.shields.io/badge/model-gpt--image--2-purple.svg" alt="Model: gpt-image-2"/>
