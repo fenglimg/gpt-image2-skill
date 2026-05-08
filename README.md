@@ -13,6 +13,12 @@
 </p>
 
 <p align="center">
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20Agents&color=8AA399" alt="oosmetrics Top 1 in Agents by velocity"/></a>
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20LLMs&color=8798B5" alt="oosmetrics Top 1 in LLMs by velocity"/></a>
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20CLI&color=A58B9D" alt="oosmetrics Top 1 in CLI by velocity"/></a>
+</p>
+
+<p align="center">
   <a href="docs/assets/gptimage2skill-banner.png"><img src="docs/assets/gptimage2skill-banner.png" alt="GPTImage2Skill banner" width="100%"/></a>
 </p>
 
@@ -27,7 +33,7 @@
   </tr>
   <tr>
     <td>Gallery size</td>
-    <td><strong>162 prompts / 162 image assets</strong> · README shows a selected showcase</td>
+    <td><strong>Small but mighty</strong> · curated for signal, not volume; README shows a selected showcase</td>
   </tr>
   <tr>
     <td>Surfaces</td>
@@ -49,7 +55,10 @@
 
 Use this repo as a **GPT Image 2 prompt gallery**, **image prompt library**, **example of generation showcase**, **Codex / Claude Code agent skill**, and **gpt-image-2 CLI**. It includes reusable AI image prompts for research paper figures, posters, UI mockups, game HUDs, anime / manga, photography, typography, maps, tattoo design, and reference-image editing workflows.
 
-For agents, the skill is intentionally **CLI-first**: it should help the agent choose gallery/craft references and call the packaged `gpt-image` CLI, not invent a new `generate.py` script for every image request.
+> This project is not trying to collect every prompt on the internet. We keep a selected set of examples that show what GPT Image 2 can do and how to use it well. Thanks for all the love this little gallery has received 🫶 — if time allows, I will also share the automated patch/update workflow behind it later.
+>
+> [!CAUTION]
+> For research figures, treat generated images as references, workflow sketches, or reproducible style targets. We do **not** recommend dropping GPT Image 2 outputs directly into a paper as-is; for academic communication, that can be misleading and is generally bad practice.
 
 ---
 
@@ -181,7 +190,7 @@ uv tool upgrade gpt-image-cli
 
 Reads `OPENAI_API_KEY` from process env, then `.env`, then `~/.env` without overriding an already-set env var.
 
-> **Agent + API-key note.** This repo provides a prompt gallery plus a local `gpt-image` CLI. The CLI uses your own OpenAI API key, so successful image calls may incur OpenAI API charges. Some agent hosts also provide native/platform-managed image generation; use that path instead if you do not want to route through your local key. To prevent accidental local API use when the key is only in your shell, temporarily run `unset OPENAI_API_KEY` before invoking the CLI/skill; if you store keys in `.env` or `~/.env`, remove or rename that entry for the session too.
+> **Agent + API-key note.** Codex also has its own built-in image-generation skill, but that path is black-box and cannot be edited here; Codex users can switch to it if they prefer. Thanks to the related issue discussion for the simple safety tip: if you do not want an agent to accidentally use your OpenAI API key, run `unset OPENAI_API_KEY` before invoking the local CLI/skill.
 
 ---
 
@@ -293,7 +302,7 @@ Distilled from OpenAI's [official GPT Image prompting guide](https://github.com/
 7. **Use `quality="high"` for in-image text, dense diagrams, small labels, and multi-panel layouts.** Those cases degrade visibly at `medium`.
 
 **The skill ships four local reference surfaces:**
-- [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) — lightweight routing index for the split 162-prompt Reference Gallery Atlas. It should be read first to pick a category; it does **not** contain the full prompt dump.
+- [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) — lightweight routing index for the split Reference Gallery Atlas. It should be read first to pick a category; it does **not** contain the full prompt dump.
 - `skills/gpt-image/references/gallery-*.md` — one category per file, loaded only when relevant, e.g. [`gallery-product-and-food.md`](skills/gpt-image/references/gallery-product-and-food.md), [`gallery-ui-ux-mockups.md`](skills/gpt-image/references/gallery-ui-ux-mockups.md), [`gallery-research-paper-figures.md`](skills/gpt-image/references/gallery-research-paper-figures.md). This keeps the skill useful without overflowing context.
 - [`skills/gpt-image/references/craft.md`](skills/gpt-image/references/craft.md) — expanded 19-section prompt-craft checklist covering gallery-first usage, JSON/config-style prompts, multi-panel boards, UI specs, data/diagram grammar, edit invariants, reference workflows, dense text, and category mini-schemas.
 - [`skills/gpt-image/references/openai-cookbook.md`](skills/gpt-image/references/openai-cookbook.md) — verbatim Markdown capture of OpenAI's cookbook (1004 lines), including the authoritative parameter-coverage table and every §4 / §5 use-case example.
@@ -306,7 +315,7 @@ Distilled from OpenAI's [official GPT Image prompting guide](https://github.com/
 
 ## 🎨 Prompt Showcase
 
-> **About the prompts.** This README showcases a representative selection of prompts together with their generated images. The larger Reference Gallery contains all 162 prompts and 162 image assets, organized by category in [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) and the matching `skills/gpt-image/references/gallery-*.md` files.
+> **About the prompts.** This README showcases a representative selection of prompts together with their generated images. The larger Reference Gallery contains the full curated prompt/image atlas, organized by category in [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) and the matching `skills/gpt-image/references/gallery-*.md` files.
 >
 > **Source labels.** `Curated` means a repo-curated or substantially reworked prompt/image; outside-source items keep visible author/source links.
 

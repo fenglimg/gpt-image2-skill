@@ -13,6 +13,12 @@
 </p>
 
 <p align="center">
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20Agents&color=8AA399" alt="oosmetrics Top 1 in Agents by velocity"/></a>
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20LLMs&color=8798B5" alt="oosmetrics Top 1 in LLMs by velocity"/></a>
+  <a href="https://oosmetrics.com/repo/wuyoscar/gpt_image_2_skill"><img src="https://img.shields.io/static/v1?label=oosmetrics&message=Top%201%20CLI&color=A58B9D" alt="oosmetrics Top 1 in CLI by velocity"/></a>
+</p>
+
+<p align="center">
   <a href="docs/assets/gptimage2skill-banner.png"><img src="docs/assets/gptimage2skill-banner.png" alt="GPTImage2Skill 横幅" width="100%"/></a>
 </p>
 
@@ -27,7 +33,7 @@
   </tr>
   <tr>
     <td>图库规模</td>
-    <td><strong>162 条提示词 / 162 个图片资产</strong> · README 展示精选样张</td>
+    <td><strong>小而能打</strong> · 重质量，不卷数量；README 展示精选样张</td>
   </tr>
   <tr>
     <td>支持形态</td>
@@ -49,7 +55,10 @@
 
 你可以把它当作 **GPT Image 2 Prompt Gallery**、**Image Prompt Library**、**Text-to-Image Prompt Collection**、**Prompt-to-Image 示例仓库**、**Codex / Claude Code Agent Skill** 和 **gpt-image-2 CLI**。目前收录了科研配图、海报设计、UI Mockup、游戏 HUD、动漫 / 漫画、摄影风格、字体设计、地图导航、纹身设计，以及参考图编辑等 AI image prompts / examples。
 
-对 Agent 来说，这个 Skill 的核心是 **CLI-first**：帮助 Agent 选择图库 / craft 参考并调用已经封装好的 `gpt-image` CLI，而不是每次图片请求都重新写一个 `generate.py`。
+> 这个项目并不是想收集越多 Prompt 越好。我们更想保留一组有代表性的例子：展示 GPT Image 2 能做什么，以及这些能力应该怎么用。也很感谢大家喜欢这个小 gallery 🫶；后续如果有时间，我也会把背后的自动化 patch / update 流程分享出来。
+>
+> [!CAUTION]
+> 对科研配图来说，生成图更适合作为参考、workflow sketch，或者帮助你复刻某种视觉风格。我们**不建议**把 GPT Image 2 生成的图片原封不动放进论文里当正式图使用；在学术表达里，这样很容易造成误导，也算是 bad practice。
 
 ---
 
@@ -181,7 +190,7 @@ uv tool upgrade gpt-image-cli
 
 按 process env、`.env`、`~/.env` 的顺序读取 `OPENAI_API_KEY`，且不会覆盖已经设置好的环境变量。
 
-> **Agent 与 API Key 提醒。** 本仓库提供 Prompt Gallery 和本地 `gpt-image` CLI。CLI 会使用你自己的 OpenAI API Key，因此成功调用图片接口可能产生 OpenAI API 费用。有些 Agent 宿主也自带平台托管的图片生成功能；如果你不想走本地 Key，就使用宿主自带的生图能力。如果 Key 只在 shell 环境变量里，想临时避免误用本地 API Key，可以在调用 CLI/Skill 前运行 `unset OPENAI_API_KEY`；如果你把 Key 写在 `.env` 或 `~/.env`，也需要在本次会话中移除或临时改名。
+> **Agent 与 API Key 提醒。** 我们发现 Codex 其实自带生成 Image 的 skill，但它是黑盒的，无法在这里修改；Codex 用户如果更想走内置能力，可以自行切换。也感谢相关 issue 里提到的方法：如果你不想让 agent accidentally 调用你的 OpenAI API Key，直接在调用本地 CLI/Skill 前运行 `unset OPENAI_API_KEY` 即可。
 
 ---
 
@@ -293,7 +302,7 @@ result = client.images.generate(
 7. **文本内嵌、密集图表、小标签和多面板布局用 `quality="high"`。** 中档会明显降低效果。
 
 **这个 skill 提供四个本地 reference surface：**
-- [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) — 轻量级路由索引，用来为拆分后的 162 条 Reference Gallery Atlas 选择 category；它本身**不是**完整 Prompt dump。
+- [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) — 轻量级路由索引，用来为拆分后的 Reference Gallery Atlas 选择 category；它本身**不是**完整 Prompt dump。
 - `skills/gpt-image/references/gallery-*.md` — 每个 category 一个文件，只在相关任务中加载，例如 [`gallery-product-and-food.md`](skills/gpt-image/references/gallery-product-and-food.md)、[`gallery-ui-ux-mockups.md`](skills/gpt-image/references/gallery-ui-ux-mockups.md)、[`gallery-research-paper-figures.md`](skills/gpt-image/references/gallery-research-paper-figures.md)。这样既能复用 Skill 的参考图库，又不会撑爆上下文。
 - [`skills/gpt-image/references/craft.md`](skills/gpt-image/references/craft.md) — 扩展后的 19 节 Prompt Craft 清单，覆盖 gallery-first 使用方式、JSON/config-style Prompt、多面板排版、UI 规格、数据/图表语法、编辑不变量、参考图工作流、密集文本和分类 mini-schema。
 - [`skills/gpt-image/references/openai-cookbook.md`](skills/gpt-image/references/openai-cookbook.md) — OpenAI Cookbook 的逐字 Markdown 捕获（1004 行），包括权威的参数覆盖表和所有第4/5节用例示例。
@@ -306,7 +315,7 @@ result = client.images.generate(
 
 ## 🎨 提示词精选展示
 
-> **关于这些提示词。** README 里展示的是一组有代表性的 prompt 及其对应生成图。完整 Reference Gallery 包含全部 162 条提示词和 162 个图片资产，按分类整理在 [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) 和对应的 `skills/gpt-image/references/gallery-*.md` 文件中。
+> **关于这些提示词。** README 里展示的是一组有代表性的 prompt 及其对应生成图。完整 Reference Gallery 包含完整的精选 prompt / image atlas，按分类整理在 [`skills/gpt-image/references/gallery.md`](skills/gpt-image/references/gallery.md) 和对应的 `skills/gpt-image/references/gallery-*.md` 文件中。
 >
 > **来源标签。** `Curated` 表示由本 repo 整理、改写或重新设计的 prompt / image；外部来源条目继续保留可见的作者和来源链接。
 
