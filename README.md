@@ -1609,8 +1609,8 @@ Make me an image in 35 mm film style of a diagram showing the knowledge of camer
       <sub><strong>O · Frontier Safety Eval Loop</strong><br/><code>"landscape"</code> · <code>"high"</code> · <code>"Curated"</code></sub>
     </td>
     <td width="25%" align="center" valign="top">
-      <a href="docs/research-paper-figures/hmr-iclr-figure.png"><img src="docs/research-paper-figures/hmr-iclr-figure.png" width="100%" alt="ICLR-style method figure"/></a><br/>
-      <sub><strong>P · ICLR-style method figure</strong><br/><code>"landscape"</code> · <code>"high"</code> · <a href="https://www.xiaohongshu.com/explore/69d396140000000023012282"><code>"Xiaohongshu"</code></a></sub>
+      <a href="docs/research-paper-figures/llm-persona-atlas.png"><img src="docs/research-paper-figures/llm-persona-atlas.png" width="100%" alt="LLM Persona Atlas"/></a><br/>
+      <sub><strong>P · LLM Persona Atlas</strong><br/><code>"wide"</code> · <code>"high"</code> · <code>"Curated"</code></sub>
     </td>
   </tr>
 </table>
@@ -1839,9 +1839,15 @@ Title: "ReAct trace: interleaved reasoning and tool-use on a factual-QA task". S
 Create a beautiful research flowchart for an AI safety benchmark pipeline called Frontier Safety Eval Loop. Landscape figure, white background, large typography, vector-like shapes, soft indigo, coral, sage, and graphite palette. Show stages Prompt Suite, Model Runs, Judge Models, Human Audit, Failure Taxonomy, Patch Queue, and Re-run. Use clean swimlanes, numbered callouts, compact legends, and premium paper-ready styling. High detail, excellent color harmony, generous whitespace, no clutter, conference-quality diagram.
 ```
 
-**Prompt P — ICLR-style method figure**
+**Prompt P — LLM Persona Atlas**
 ```text
-Create a polished ICLR-style Figure 1 for an imaginary method called "Hierarchical Memory Routing for Long-Context Multimodal Reasoning (HMR)". The top band shows the failure mode of naive long-context multimodal processing: one overcrowded horizontal token stream mixing text, image patches, retrieved documents, tool traces, and audio snippets, with red-orange warning accents for interference, attention dilution, memory collision, and quadratic compute cost. A clean horizontal divider separates the main lower panel, which presents the HMR framework as a spacious modular loop. Center: a Reasoning Controller with stages Observe_t to Update_t. Left: a three-level Memory Hierarchy with working cache, episodic memory, and semantic knowledge base. Right: Multimodal Streams entering selectively through routing paths. Bottom right: sparse experts activated only when needed. White background, vector-clean styling, neutral gray plus cool accents, minimal but legible labels, conference-paper clarity, no poster aesthetics.
+Create a premium conceptual figure for an EMNLP / ACL paper, landscape 16:9, high-resolution, polished editorial-academic style. Theme: "LLM Persona Atlas". This should not look like a generic pipeline diagram. It should look like a beautifully designed Figure 1 from a top NLP / agent paper: minimal, refined, memorable, with a strong central visual metaphor.
+
+Use a warm off-white paper background, subtle grain, large clean margins, crisp vector-like linework, delicate shadows, and fine gradients used sparingly. Use an understated, high-end color palette: ink black, warm gray, muted cobalt, dusty teal, soft sage, pale amber, muted coral, slate blue. No saturated rainbow colors, no cartoon style, no photorealism, no generic stock illustration.
+
+Composition: left "Utterance Stream" with small translucent speech fragments flowing in as curved data ribbons; center "Persona Lens" as a glass-like hexagonal prism / agent lens that refracts utterance ribbons into six colored persona strands; right "Six Persona Glyphs" as a coherent 2x3 gallery of abstract symbolic avatars labeled "Concise", "Explainer", "Cautious", "Supportive", "Creative", and "Analyst".
+
+Keep typography sparse, crisp, and clean. Add a small title "LLM Persona Atlas" and subtitle "from utterance style to model profile". Avoid dense method labels, big boxes, fake equations, fake citations, garbled text, photoreal humans, childish cartoon avatars, heavy shadows, and purple gradient backgrounds.
 ```
 
 </details>
