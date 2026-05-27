@@ -46,6 +46,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import http.client
 import json
 import os
 import re
@@ -468,6 +469,9 @@ def main() -> int:
         return 1
     except urllib.error.URLError as e:
         print(f"error: URL error: {e}", file=sys.stderr)
+        return 1
+    except http.client.RemoteDisconnected as e:
+        print(f"error: remote disconnected before sending a response: {e}", file=sys.stderr)
         return 1
 
     data = result.data or []
