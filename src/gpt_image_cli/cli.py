@@ -85,7 +85,7 @@ SIZE_SHORTCUTS: dict[str, str] = {
 DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_SIZE = "1024x1024"
 DEFAULT_MODERATION = "low"
-DEFAULT_PROVIDER = "openai"
+DEFAULT_PROVIDER = "rightcode-chat"
 RIGHT_CODE_BASE_URL = "https://www.right.codes/draw"
 
 
@@ -152,7 +152,7 @@ def parse_args() -> argparse.Namespace:
         "--provider",
         default=os.environ.get("GPT_IMAGE_PROVIDER", DEFAULT_PROVIDER),
         choices=["openai", "rightcode-images", "rightcode-chat"],
-        help="API provider. Defaults to GPT_IMAGE_PROVIDER or openai.",
+        help="API provider. Defaults to GPT_IMAGE_PROVIDER or rightcode-chat.",
     )
     p.add_argument(
         "--base-url",
@@ -317,8 +317,26 @@ def extract_image_items_from_text(text: str) -> list[ImageItem]:
     return items
 
 
-def stream_chat_content(response: Any) -> str:
+def extract_image_items_from_payload(payload: Any) -> list[ImageItem]:
+    items: list[ImageItem] = []
+    if isinstance(payload, dict):
+        b64 = payload.get("b64_json")
+        url = payload.get("url")
+        if isinstance(b64, str) or isinstance(url, str):
+            items.append(ImageItem(b64_json=b64 if isinstance(b64, str) else None, url=url if isinstance(url, str) else None))
+        for value in payload.values():
+            items.extend(extract_image_items_from_payload(value))
+    elif isinstance(payload, list):
+        for value in payload:
+            items.extend(extract_image_items_from_payload(value))
+    elif isinstance(payload, str):
+        items.extend(extract_image_items_from_text(payload))
+    return items
+
+
+def stream_chat_response(response: Any) -> tuple[str, list[ImageItem]]:
     chunks: list[str] = []
+    items: list[ImageItem] = []
     for raw_line in response:
         line = raw_line.decode("utf-8", errors="replace").strip()
         if not line.startswith("data:"):
@@ -330,29 +348,36 @@ def stream_chat_content(response: Any) -> str:
             payload = json.loads(data)
         except json.JSONDecodeError:
             continue
+        items.extend(extract_image_items_from_payload(payload))
         for choice in payload.get("choices") or []:
             delta = choice.get("delta") or {}
             content = delta.get("content")
             if content:
                 chunks.append(content)
-    return "".join(chunks)
+                items.extend(extract_image_items_from_text(content))
+    return "".join(chunks), items
 
 
 def call_rightcode_chat(args: argparse.Namespace, api_key: str) -> ImageResult:
     base_url = provider_base_url(args) or RIGHT_CODE_BASE_URL
+    prompt = (
+        f"{args.prompt}\n\n"
+        f"Image generation settings: size={resolve_size(args.size)}, n={args.n}. "
+        "Return the final generated image URL or data URL."
+    )
     body = {
         "model": args.model,
         "stream": True,
         "messages": [
             {
                 "role": "user",
-                "content": args.prompt,
+                "content": prompt,
             }
         ],
     }
     with post_json(f"{base_url}/v1/chat/completions", api_key, body, stream=True) as response:
-        content = stream_chat_content(response)
-    items = extract_image_items_from_text(content)
+        content, items = stream_chat_response(response)
+    items = items or extract_image_items_from_text(content)
     if not items:
         print("error: Right Code chat response did not contain an image URL or data URL.", file=sys.stderr)
         if content:

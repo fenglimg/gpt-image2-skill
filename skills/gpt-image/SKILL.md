@@ -42,7 +42,7 @@ uvx --from git+https://github.com/wuyoscar/gpt_image_2_skill gpt-image -p "PROMP
 ## Key and cost rules
 
 - CLI reads API keys from process env, then `.env`, then `~/.env` without overriding existing env. OpenAI uses `OPENAI_API_KEY`; Right Code uses `RIGHT_CODE_API_KEY`, `RIGHT_CODES_API_KEY`, or `GPT_IMAGE_API_KEY`.
-- Use `--provider rightcode-images` for Right Code `/v1/images/generations`; use `--provider rightcode-chat` for streaming `/v1/chat/completions` when long image jobs may hit Cloudflare timeouts.
+- The default provider is `rightcode-chat` for streaming `/v1/chat/completions`; use `--provider rightcode-images` only when the native image endpoint is preferred.
 - If host/runtime has native platform-managed image generation and the user wants that path, use the host tool instead of this CLI.
 - If `OPENAI_API_KEY` is unset, report missing key or use host-native generation when requested; do not write secrets.
 - If user wants to avoid local-key use, respect `unset OPENAI_API_KEY`; if a key exists in `.env`/`~/.env`, tell them to remove/rename it for the session rather than working around it.

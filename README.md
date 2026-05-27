@@ -216,16 +216,17 @@ The CLI can keep the same gallery prompts and route generation through Right Cod
 ```bash
 export RIGHT_CODE_API_KEY="sk-..."
 
+# Default provider is the streaming chat endpoint, useful when long image jobs
+# would otherwise hit Cloudflare timeouts.
+gpt-image -p "a photorealistic convenience store at 10pm" \
+  --model gpt-image-2-vip --size 1024x1024 -f store.png
+
 # Native image endpoint, fastest when a direct image URL is enough.
 gpt-image -p "a photorealistic convenience store at 10pm" \
   --provider rightcode-images --model gpt-image-2 --size 1024x1024 -f store.png
-
-# Streaming chat endpoint, useful when long image jobs would otherwise hit Cloudflare timeouts.
-gpt-image -p "a photorealistic convenience store at 10pm" \
-  --provider rightcode-chat --model gpt-image-2-vip --size 1024x1024 -f store.png
 ```
 
-Defaults for Right Code: `--base-url https://www.right.codes/draw`; supported image models include `gpt-image-2` (1K) and `gpt-image-2-vip` (1K/2K/4K). You can also set `GPT_IMAGE_PROVIDER`, `GPT_IMAGE_BASE_URL`, and `GPT_IMAGE_MODEL` in env or `.env`.
+Defaults for Right Code: `--provider rightcode-chat` and `--base-url https://www.right.codes/draw`; supported image models include `gpt-image-2` (1K) and `gpt-image-2-vip` (1K/2K/4K). You can also set `GPT_IMAGE_PROVIDER`, `GPT_IMAGE_BASE_URL`, and `GPT_IMAGE_MODEL` in env or `.env`.
 
 ### Text + reference image → image (edit)
 
@@ -264,7 +265,7 @@ Under the hood: `POST /v1/images/edits` (multipart form), the official endpoint 
 | `--moderation` | `auto` · `low` | `low` | generations | `low` is the default here for broader prompt exploration; switch to `auto` if you want the stricter API-side default. |
 | `--format` | `png` · `jpeg` · `webp` | `png` | both | Response encoding. |
 | `--compression` | 0–100 | — | both | JPEG/WebP only. |
-| `--provider` | `openai` · `rightcode-images` · `rightcode-chat` | `openai` | generate path | Selects OpenAI SDK, Right Code image endpoint, or Right Code streaming chat endpoint. |
+| `--provider` | `openai` · `rightcode-images` · `rightcode-chat` | `rightcode-chat` | generate path | Selects OpenAI SDK, Right Code image endpoint, or Right Code streaming chat endpoint. |
 | `--base-url` | URL | provider default | generate path | Right Code defaults to `https://www.right.codes/draw`; OpenAI-compatible proxies can be configured here. |
 | `--api-key-env` | env var name | provider default | both | Reads the API key from a custom environment variable. |
 
