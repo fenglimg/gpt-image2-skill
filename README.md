@@ -188,7 +188,7 @@ uv tool upgrade gpt-image-cli
 
 </details>
 
-Reads `OPENAI_API_KEY` from process env, then `.env`, then `~/.env` without overriding an already-set env var.
+Reads API keys from process env, then `.env`, then `~/.env` without overriding an already-set env var. OpenAI uses `OPENAI_API_KEY`. Right Code uses `RIGHT_CODE_API_KEY`, `RIGHT_CODES_API_KEY`, or `GPT_IMAGE_API_KEY`.
 
 > **Agent + API-key note.** Codex also has its own built-in image-generation skill, but that path is black-box and cannot be edited here; Codex users can switch to it if they prefer. Thanks to the related issue discussion for the simple safety tip: if you do not want an agent to accidentally use your OpenAI API key, run `unset OPENAI_API_KEY` before invoking the local CLI/skill.
 
@@ -208,6 +208,24 @@ gpt-image -p "a photorealistic convenience store at 10pm" --size 1k --quality hi
 ```
 
 Under the hood: `POST /v1/images/generations` with `model=gpt-image-2`.
+
+### Right Code proxy
+
+The CLI can keep the same gallery prompts and route generation through Right Code's draw API:
+
+```bash
+export RIGHT_CODE_API_KEY="sk-..."
+
+# Native image endpoint, fastest when a direct image URL is enough.
+gpt-image -p "a photorealistic convenience store at 10pm" \
+  --provider rightcode-images --model gpt-image-2 --size 1024x1024 -f store.png
+
+# Streaming chat endpoint, useful when long image jobs would otherwise hit Cloudflare timeouts.
+gpt-image -p "a photorealistic convenience store at 10pm" \
+  --provider rightcode-chat --model gpt-image-2-vip --size 1024x1024 -f store.png
+```
+
+Defaults for Right Code: `--base-url https://www.right.codes/draw`; supported image models include `gpt-image-2` (1K) and `gpt-image-2-vip` (1K/2K/4K). You can also set `GPT_IMAGE_PROVIDER`, `GPT_IMAGE_BASE_URL`, and `GPT_IMAGE_MODEL` in env or `.env`.
 
 ### Text + reference image → image (edit)
 
@@ -246,6 +264,9 @@ Under the hood: `POST /v1/images/edits` (multipart form), the official endpoint 
 | `--moderation` | `auto` · `low` | `low` | generations | `low` is the default here for broader prompt exploration; switch to `auto` if you want the stricter API-side default. |
 | `--format` | `png` · `jpeg` · `webp` | `png` | both | Response encoding. |
 | `--compression` | 0–100 | — | both | JPEG/WebP only. |
+| `--provider` | `openai` · `rightcode-images` · `rightcode-chat` | `openai` | generate path | Selects OpenAI SDK, Right Code image endpoint, or Right Code streaming chat endpoint. |
+| `--base-url` | URL | provider default | generate path | Right Code defaults to `https://www.right.codes/draw`; OpenAI-compatible proxies can be configured here. |
+| `--api-key-env` | env var name | provider default | both | Reads the API key from a custom environment variable. |
 
 </details>
 
@@ -282,7 +303,7 @@ result = client.images.generate(
 
 For reference-based edits, add `-i ref.png` (repeatable) and optionally `-m mask.png` on the CLI, or call `client.images.edit(...)` with `image=[open(p, "rb") for p in refs]`. Everything else stays identical to the generate path.
 
-Exit codes: `0` success · `1` API/refusal error (full response body echoed to stderr) · `2` bad args or missing `OPENAI_API_KEY`.
+Exit codes: `0` success · `1` API/refusal error (full response body echoed to stderr) · `2` bad args or missing API key.
 
 </details>
 

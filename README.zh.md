@@ -188,7 +188,7 @@ uv tool upgrade gpt-image-cli
 
 </details>
 
-按 process env、`.env`、`~/.env` 的顺序读取 `OPENAI_API_KEY`，且不会覆盖已经设置好的环境变量。
+按 process env、`.env`、`~/.env` 的顺序读取 API Key，且不会覆盖已经设置好的环境变量。OpenAI 使用 `OPENAI_API_KEY`；Right Code 使用 `RIGHT_CODE_API_KEY`、`RIGHT_CODES_API_KEY` 或 `GPT_IMAGE_API_KEY`。
 
 > **Agent 与 API Key 提醒。** 我们发现 Codex 其实自带生成 Image 的 skill，但它是黑盒的，无法在这里修改；Codex 用户如果更想走内置能力，可以自行切换。也感谢相关 issue 里提到的方法：如果你不想让 agent accidentally 调用你的 OpenAI API Key，直接在调用本地 CLI/Skill 前运行 `unset OPENAI_API_KEY` 即可。
 
@@ -208,6 +208,24 @@ gpt-image -p "晚上10点的逼真便利店" --size 1k --quality high -f store.p
 ```
 
 底层实现：`POST /v1/images/generations`，使用 `model=gpt-image-2`。
+
+### Right Code 中转
+
+CLI 可以继续复用当前图库 Prompt 和模板，只把生成请求路由到 Right Code 画图接口：
+
+```bash
+export RIGHT_CODE_API_KEY="sk-..."
+
+# 原生图片接口，适合只需要图片直链的场景。
+gpt-image -p "晚上10点的逼真便利店" \
+  --provider rightcode-images --model gpt-image-2 --size 1024x1024 -f store.png
+
+# 流式 chat 接口，适合规避长时间画图触发 Cloudflare 超时。
+gpt-image -p "晚上10点的逼真便利店" \
+  --provider rightcode-chat --model gpt-image-2-vip --size 1024x1024 -f store.png
+```
+
+Right Code 默认 `--base-url https://www.right.codes/draw`；图片模型可用 `gpt-image-2`（1K）和 `gpt-image-2-vip`（1K/2K/4K）。也可以在环境变量或 `.env` 中设置 `GPT_IMAGE_PROVIDER`、`GPT_IMAGE_BASE_URL` 和 `GPT_IMAGE_MODEL`。
 
 ### 文字 + 参考图像 → 图像（编辑）
 
@@ -246,6 +264,9 @@ gpt-image -p "将天空替换为极光" \
 | `--moderation` | `auto` · `low` | `low` | 生成 | 这里默认用 `low`，更适合广泛探索提示词；如果你想回到更严格的 API 侧默认行为，就手动切到 `auto`。 |
 | `--format` | `png` · `jpeg` · `webp` | `png` | 两者 | 响应编码格式。 |
 | `--compression` | 0–100 | — | 两者 | 仅适用于 JPEG/WebP。 |
+| `--provider` | `openai` · `rightcode-images` · `rightcode-chat` | `openai` | 生成路径 | 选择 OpenAI SDK、Right Code 图片接口或 Right Code 流式 chat 接口。 |
+| `--base-url` | URL | provider 默认值 | 生成路径 | Right Code 默认 `https://www.right.codes/draw`；也可以配置其他 OpenAI-compatible 中转地址。 |
+| `--api-key-env` | 环境变量名 | provider 默认值 | 两者 | 从自定义环境变量读取 API Key。 |
 
 </details>
 
@@ -282,7 +303,7 @@ result = client.images.generate(
 
 遇到需要参考图的编辑任务，在 CLI 上追加 `-i ref.png`（可重复）以及可选的 `-m mask.png`，或把 SDK 调用换成 `client.images.edit(...)` 并传 `image=[open(p, "rb") for p in refs]`。其余参数与 generate 完全一致。
 
-退出代码：`0` 成功 · `1` API/拒绝错误（完整响应体打印到 stderr） · `2` 参数错误或缺失 `OPENAI_API_KEY`。
+退出代码：`0` 成功 · `1` API/拒绝错误（完整响应体打印到 stderr） · `2` 参数错误或缺失 API Key。
 
 </details>
 

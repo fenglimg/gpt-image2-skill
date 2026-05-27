@@ -1,7 +1,7 @@
 ---
 name: gpt-image
 description: "Use this skill whenever a user asks to generate, create, draw, render, or edit images with GPT Image 2 / gpt-image-2, text-to-image, reference-image editing, inpainting, posters, typography, Chinese text, UI mockups, diagrams, or gallery prompts. Analyze the user's prompt, search the bundled Reference Gallery/craft files for matching design patterns, confer on direction when useful, then call the packaged `gpt-image` CLI or bundled `scripts/generate.py`. Do not write new image-generation code unless explicitly asked to modify this repo."
-compatibility: "Requires Python 3.11+ and either `gpt-image`, `uv`, or `uvx`. CLI/API calls read `OPENAI_API_KEY` and may incur OpenAI API charges."
+compatibility: "Requires Python 3.11+ and either `gpt-image`, `uv`, or `uvx`. CLI/API calls read `OPENAI_API_KEY`, `RIGHT_CODE_API_KEY`, `RIGHT_CODES_API_KEY`, or `GPT_IMAGE_API_KEY` and may incur API charges."
 metadata: {"openclaw":{"requires":{"anyBins":["gpt-image","uv","uvx"]},"primaryEnv":"OPENAI_API_KEY","homepage":"https://github.com/wuyoscar/gpt_image_2_skill"}}
 ---
 
@@ -41,7 +41,8 @@ uvx --from git+https://github.com/wuyoscar/gpt_image_2_skill gpt-image -p "PROMP
 
 ## Key and cost rules
 
-- CLI reads `OPENAI_API_KEY` from process env, then `.env`, then `~/.env` without overriding existing env; successful API calls may bill the user’s OpenAI account.
+- CLI reads API keys from process env, then `.env`, then `~/.env` without overriding existing env. OpenAI uses `OPENAI_API_KEY`; Right Code uses `RIGHT_CODE_API_KEY`, `RIGHT_CODES_API_KEY`, or `GPT_IMAGE_API_KEY`.
+- Use `--provider rightcode-images` for Right Code `/v1/images/generations`; use `--provider rightcode-chat` for streaming `/v1/chat/completions` when long image jobs may hit Cloudflare timeouts.
 - If host/runtime has native platform-managed image generation and the user wants that path, use the host tool instead of this CLI.
 - If `OPENAI_API_KEY` is unset, report missing key or use host-native generation when requested; do not write secrets.
 - If user wants to avoid local-key use, respect `unset OPENAI_API_KEY`; if a key exists in `.env`/`~/.env`, tell them to remove/rename it for the session rather than working around it.
@@ -64,6 +65,9 @@ uvx --from git+https://github.com/wuyoscar/gpt_image_2_skill gpt-image -p "PROMP
 | `--format` | `png`, `jpeg`, `webp` | Output encoding |
 | `--compression` | `0-100` | JPEG/WebP compression |
 | `--user` | string | Optional end-user identifier |
+| `--provider` | `openai`, `rightcode-images`, `rightcode-chat` | API provider |
+| `--base-url` | URL | Custom OpenAI-compatible or Right Code base URL |
+| `--api-key-env` | env var name | Custom API key environment variable |
 
 Quality policy:
 - `low`: cheap drafts, broad exploration, many variants.
@@ -85,6 +89,8 @@ Size policy:
 | Text-to-image | no `-i` | `/v1/images/generations` |
 | Reference edit | one or more `-i` | `/v1/images/edits` |
 | Inpaint | `-i` + `-m` | `/v1/images/edits` with mask |
+| Right Code text-to-image | `--provider rightcode-images` | `https://www.right.codes/draw/v1/images/generations` |
+| Right Code streaming text-to-image | `--provider rightcode-chat` | `https://www.right.codes/draw/v1/chat/completions` |
 
 Surface API errors verbatim enough for debugging; exit codes: `0` success, `1` API/refusal, `2` bad args/missing key.
 

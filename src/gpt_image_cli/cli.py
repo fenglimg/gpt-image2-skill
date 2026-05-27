@@ -46,9 +46,11 @@ from __future__ import annotations
 
 import argparse
 import base64
+import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -82,6 +84,19 @@ SIZE_SHORTCUTS: dict[str, str] = {
 DEFAULT_MODEL = "gpt-image-2"
 DEFAULT_SIZE = "1024x1024"
 DEFAULT_MODERATION = "low"
+DEFAULT_PROVIDER = "openai"
+RIGHT_CODE_BASE_URL = "https://www.right.codes/draw"
+
+
+class ImageItem:
+    def __init__(self, b64_json: str | None = None, url: str | None = None) -> None:
+        self.b64_json = b64_json
+        self.url = url
+
+
+class ImageResult:
+    def __init__(self, data: list[ImageItem]) -> None:
+        self.data = data
 
 
 def slugify(text: str, max_len: int = 30) -> str:
@@ -108,7 +123,7 @@ def model_rejects_input_fidelity(model: str) -> bool:
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(
         prog="gpt-image",
-        description="Call OpenAI GPT Image 2 (generations or edits) via the official openai Python SDK.",
+        description="Call GPT Image 2 via OpenAI or an OpenAI-compatible image proxy.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     p.add_argument("-p", "--prompt", required=True, help="Text prompt / edit instruction.")
@@ -127,7 +142,32 @@ def parse_args() -> argparse.Namespace:
         help="Alpha-channel PNG mask (opaque = preserved, transparent = regenerated). "
              "Edits endpoint only; requires -i.",
     )
-    p.add_argument("--model", default=DEFAULT_MODEL, help=f"Model ID (default {DEFAULT_MODEL}).")
+    p.add_argument(
+        "--model",
+        default=os.environ.get("GPT_IMAGE_MODEL", DEFAULT_MODEL),
+        help=f"Model ID (default {DEFAULT_MODEL}, or GPT_IMAGE_MODEL).",
+    )
+    p.add_argument(
+        "--provider",
+        default=os.environ.get("GPT_IMAGE_PROVIDER", DEFAULT_PROVIDER),
+        choices=["openai", "rightcode-images", "rightcode-chat"],
+        help="API provider. Defaults to GPT_IMAGE_PROVIDER or openai.",
+    )
+    p.add_argument(
+        "--base-url",
+        default=os.environ.get("GPT_IMAGE_BASE_URL") or os.environ.get("OPENAI_BASE_URL"),
+        help="API base URL. Right Code defaults to https://www.right.codes/draw.",
+    )
+    p.add_argument(
+        "--api-key-env",
+        default=os.environ.get("GPT_IMAGE_API_KEY_ENV"),
+        help="Environment variable name that stores the API key.",
+    )
+    p.add_argument(
+        "--api-key",
+        default=None,
+        help="API key value. Prefer env vars; this flag is mainly for one-off local testing.",
+    )
     p.add_argument(
         "--size", default=DEFAULT_SIZE,
         help="Image size. Accepts literals (1024x1024, 1536x1024, 2048x2048, 3840x2160, "
@@ -173,6 +213,38 @@ def _filter_none(d: dict[str, Any]) -> dict[str, Any]:
     return {k: v for k, v in d.items() if v is not None}
 
 
+def provider_base_url(args: argparse.Namespace) -> str | None:
+    if args.base_url:
+        return str(args.base_url).rstrip("/")
+    if args.provider.startswith("rightcode"):
+        return RIGHT_CODE_BASE_URL
+    return None
+
+
+def resolve_api_key(args: argparse.Namespace) -> str | None:
+    if args.api_key:
+        return args.api_key
+    env_names = []
+    if args.api_key_env:
+        env_names.append(args.api_key_env)
+    if args.provider.startswith("rightcode"):
+        env_names.extend(["RIGHT_CODE_API_KEY", "RIGHT_CODES_API_KEY", "GPT_IMAGE_API_KEY"])
+    env_names.append("OPENAI_API_KEY")
+    for name in env_names:
+        value = os.environ.get(name)
+        if value:
+            return value
+    return None
+
+
+def openai_client(args: argparse.Namespace, api_key: str) -> OpenAI:
+    base_url = provider_base_url(args)
+    kwargs: dict[str, Any] = {"api_key": api_key}
+    if base_url:
+        kwargs["base_url"] = base_url
+    return OpenAI(**kwargs)
+
+
 def call_generate(client: OpenAI, args: argparse.Namespace) -> Any:
     return client.images.generate(**_filter_none({
         "model": args.model,
@@ -186,6 +258,106 @@ def call_generate(client: OpenAI, args: argparse.Namespace) -> Any:
         "output_compression": args.output_compression,
         "user": args.user,
     }))
+
+
+def post_json(url: str, api_key: str, body: dict[str, Any], stream: bool = False) -> Any:
+    request = urllib.request.Request(
+        url,
+        data=json.dumps(body).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "Accept": "text/event-stream" if stream else "application/json",
+        },
+        method="POST",
+    )
+    return urllib.request.urlopen(request, timeout=600)  # noqa: S310 - user-configured API host
+
+
+def local_image_to_base64(path: Path) -> str:
+    if not path.is_file():
+        print(f"error: --image not found: {path}", file=sys.stderr)
+        sys.exit(2)
+    return base64.b64encode(path.read_bytes()).decode("ascii")
+
+
+def rightcode_images_payload(args: argparse.Namespace) -> dict[str, Any]:
+    payload = {
+        "model": args.model,
+        "prompt": args.prompt,
+        "image": [local_image_to_base64(p) for p in (args.image or [])],
+        "size": resolve_size(args.size),
+        "response_format": "url",
+    }
+    return _filter_none(payload)
+
+
+def normalize_image_items(payload: dict[str, Any]) -> list[ImageItem]:
+    items: list[ImageItem] = []
+    for item in payload.get("data") or []:
+        if isinstance(item, dict):
+            items.append(ImageItem(b64_json=item.get("b64_json"), url=item.get("url")))
+    return items
+
+
+def call_rightcode_images(args: argparse.Namespace, api_key: str) -> ImageResult:
+    base_url = provider_base_url(args) or RIGHT_CODE_BASE_URL
+    with post_json(f"{base_url}/v1/images/generations", api_key, rightcode_images_payload(args)) as response:
+        payload = json.loads(response.read().decode("utf-8"))
+    return ImageResult(normalize_image_items(payload))
+
+
+def extract_image_items_from_text(text: str) -> list[ImageItem]:
+    items: list[ImageItem] = []
+    for match in re.finditer(r"data:image/[^;]+;base64,([A-Za-z0-9+/=\r\n]+)", text):
+        items.append(ImageItem(b64_json=re.sub(r"\s+", "", match.group(1))))
+    for match in re.finditer(r"https?://[^\s)\"']+\.(?:png|jpe?g|webp)(?:\?[^\s)\"']*)?", text, re.I):
+        items.append(ImageItem(url=match.group(0)))
+    return items
+
+
+def stream_chat_content(response: Any) -> str:
+    chunks: list[str] = []
+    for raw_line in response:
+        line = raw_line.decode("utf-8", errors="replace").strip()
+        if not line.startswith("data:"):
+            continue
+        data = line.removeprefix("data:").strip()
+        if not data or data == "[DONE]":
+            continue
+        try:
+            payload = json.loads(data)
+        except json.JSONDecodeError:
+            continue
+        for choice in payload.get("choices") or []:
+            delta = choice.get("delta") or {}
+            content = delta.get("content")
+            if content:
+                chunks.append(content)
+    return "".join(chunks)
+
+
+def call_rightcode_chat(args: argparse.Namespace, api_key: str) -> ImageResult:
+    base_url = provider_base_url(args) or RIGHT_CODE_BASE_URL
+    body = {
+        "model": args.model,
+        "stream": True,
+        "messages": [
+            {
+                "role": "user",
+                "content": args.prompt,
+            }
+        ],
+    }
+    with post_json(f"{base_url}/v1/chat/completions", api_key, body, stream=True) as response:
+        content = stream_chat_content(response)
+    items = extract_image_items_from_text(content)
+    if not items:
+        print("error: Right Code chat response did not contain an image URL or data URL.", file=sys.stderr)
+        if content:
+            print(content[:1000], file=sys.stderr)
+        sys.exit(1)
+    return ImageResult(items[: args.n])
 
 
 def call_edit(client: OpenAI, args: argparse.Namespace) -> Any:
@@ -233,8 +405,8 @@ def write_outputs(data: list[Any], out_path: Path, n: int) -> list[Path]:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     written: list[Path] = []
     for i, item in enumerate(data):
-        b64 = getattr(item, "b64_json", None)
-        url = getattr(item, "url", None)
+        b64 = item.get("b64_json") if isinstance(item, dict) else getattr(item, "b64_json", None)
+        url = item.get("url") if isinstance(item, dict) else getattr(item, "url", None)
         if b64:
             raw = base64.b64decode(b64)
         elif url:
@@ -255,12 +427,13 @@ def write_outputs(data: list[Any], out_path: Path, n: int) -> list[Path]:
 
 
 def main() -> int:
-    args = parse_args()
-
     _load_env_chain()
-    if not os.environ.get("OPENAI_API_KEY"):
+    args = parse_args()
+    api_key = resolve_api_key(args)
+    if not api_key:
         print(
-            "error: OPENAI_API_KEY not set. Add it to env / .env / ~/.env, or use your host agent's native image tool.",
+            "error: API key not set. Add OPENAI_API_KEY, RIGHT_CODE_API_KEY, GPT_IMAGE_API_KEY, "
+            "or pass --api-key-env.",
             file=sys.stderr,
         )
         return 2
@@ -272,12 +445,29 @@ def main() -> int:
     ext = args.output_format or "png"
     out_path = Path(args.file).expanduser().resolve() if args.file else default_output_path(args.prompt, ext)
 
-    client = OpenAI()  # auto-reads OPENAI_API_KEY
-
     try:
-        result = call_edit(client, args) if args.image else call_generate(client, args)
+        if args.provider == "openai":
+            client = openai_client(args, api_key)
+            result = call_edit(client, args) if args.image else call_generate(client, args)
+        elif args.provider == "rightcode-images":
+            if args.mask:
+                print("error: --mask is only supported by the openai provider.", file=sys.stderr)
+                return 2
+            result = call_rightcode_images(args, api_key)
+        else:
+            if args.image or args.mask:
+                print("error: rightcode-chat currently supports text-to-image only.", file=sys.stderr)
+                return 2
+            result = call_rightcode_chat(args, api_key)
     except APIError as e:
         print(f"error: {type(e).__name__}: {e}", file=sys.stderr)
+        return 1
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        print(f"error: HTTP {e.code}: {body[:1000]}", file=sys.stderr)
+        return 1
+    except urllib.error.URLError as e:
+        print(f"error: URL error: {e}", file=sys.stderr)
         return 1
 
     data = result.data or []
