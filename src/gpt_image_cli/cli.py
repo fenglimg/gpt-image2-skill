@@ -4,6 +4,7 @@
 # dependencies = [
 #     "openai>=1.55",
 #     "python-dotenv>=1.0",
+#     "certifi>=2024.2",
 # ]
 # ///
 """General-purpose CLI for OpenAI GPT Image 2.
@@ -50,6 +51,7 @@ import http.client
 import json
 import os
 import re
+import ssl
 import sys
 import urllib.error
 import urllib.request
@@ -57,6 +59,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+import certifi
 from dotenv import load_dotenv
 from openai import APIError, OpenAI
 
@@ -261,6 +264,16 @@ def call_generate(client: OpenAI, args: argparse.Namespace) -> Any:
     }))
 
 
+def _ssl_context() -> ssl.SSLContext:
+    """SSL context backed by certifi's CA bundle.
+
+    macOS system Python often cannot locate root certificates, so urllib's
+    default context fails with CERTIFICATE_VERIFY_FAILED against hosts that the
+    httpx/certifi-based openai client reaches fine. certifi ships with the SDK.
+    """
+    return ssl.create_default_context(cafile=certifi.where())
+
+
 def post_json(url: str, api_key: str, body: dict[str, Any], stream: bool = False) -> Any:
     request = urllib.request.Request(
         url,
@@ -272,7 +285,7 @@ def post_json(url: str, api_key: str, body: dict[str, Any], stream: bool = False
         },
         method="POST",
     )
-    return urllib.request.urlopen(request, timeout=600)  # noqa: S310 - user-configured API host
+    return urllib.request.urlopen(request, timeout=600, context=_ssl_context())  # noqa: S310 - user-configured API host
 
 
 def local_image_to_base64(path: Path) -> str:
@@ -436,7 +449,7 @@ def write_outputs(data: list[Any], out_path: Path, n: int) -> list[Path]:
         if b64:
             raw = base64.b64decode(b64)
         elif url:
-            with urllib.request.urlopen(url, timeout=300) as r:  # noqa: S310 — OpenAI-owned host
+            with urllib.request.urlopen(url, timeout=300, context=_ssl_context()) as r:  # noqa: S310 — OpenAI-owned host
                 raw = r.read()
         else:
             print(f"error: response item {i} has neither b64_json nor url", file=sys.stderr)
